@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bespoke & Designer Kitchen · Python Kitchen Ltd</title>
+  <meta name="description" content="Explore our Bespoke & Designer Kitchen project: premium materials, tailored storage, and timeless finishes. See images and get an instant feel for the quality."/>
+  <link rel="icon" type="image/png" href="python kitchen dark logo.png">
+  <style>
+    :root{
+      --bg:#E9D6B5;              /* Champagne Gold / Light Beige background */
+      --blue:#0D1B2A;            /* Deep navy (brand blue) */
+      --text:var(--blue);        /* Base text now blue */
+      --accent:#FAF9F6;          /* Warm ivory (corrected from #FAF9F) */
+      --muted:#1B263B;           /* Slightly lighter navy */
+      --brand:#C8AD7F;           /* Soft brass accent for subtle highlights */
+      --ok:#31c48d;              /* success */
+      --warn:#f59e0b;            /* warning */
+      --err:#ef4444;             /* error */
+      --radius:1.25rem;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--text); background:radial-gradient(1200px 600px at 10% -10%, rgba(255,255,255,.06), transparent 60%),
+                        radial-gradient(900px 500px at 100% 10%, rgba(255,255,255,.05), transparent 60%), var(--bg);
+      line-height:1.6;
+    }
+    
+    /* ===== FADE-IN ANIMATION ===== */
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+    
+    @keyframes fadeInUp{
+      from{opacity:0; transform:translateY(30px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+    
+    /* Initial state - hidden */
+    body{
+      opacity:0;
+      transition:opacity 0.8s ease-out;
+      overflow-x:hidden; /* Prevent horizontal scroll during animation */
+    }
+    
+    /* When loaded, fade in */
+    body.loaded{
+      opacity:1;
+    }
+    
+    /* Staggered animations for main content */
+    main, header, footer{
+      opacity:0;
+      transform:translateY(20px);
+      transition:opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    body.loaded main,
+    body.loaded header,
+    body.loaded footer{
+      opacity:1;
+      transform:translateY(0);
+    }
+    
+    /* Staggered animations for sections */
+    section{
+      opacity:0;
+      transform:translateY(30px);
+      transition:opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    body.loaded section{
+      opacity:1;
+      transform:translateY(0);
+    }
+    
+    /* Add slight delays for different sections */
+    body.loaded section:nth-child(1){transition-delay:0.1s;}
+    body.loaded section:nth-child(2){transition-delay:0.2s;}
+    body.loaded section:nth-child(3){transition-delay:0.3s;}
+    body.loaded section:nth-child(4){transition-delay:0.4s;}
+    body.loaded section:nth-child(5){transition-delay:0.5s;}
+    body.loaded section:nth-child(6){transition-delay:0.6s;}
+    body.loaded section:nth-child(7){transition-delay:0.7s;}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:min(1200px, 92%); margin-inline:auto}
+    header{position:fixed; top:0; left:0; right:0; z-index:20; background:#E9D6B5; backdrop-filter: blur(10px); border-bottom:1px solid rgba(13,27,42,.12); transition: transform 0.3s ease-out; width:100%;}
+    header.nav-hidden{transform: translateY(-100%) !important;}
+    body{padding-top:80px}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    .brand{display:flex; align-items:center; gap:.75rem}
+    .logo{width:80px; height:64px; display:flex; align-items:center; justify-content:center; background:transparent; border-radius:0; overflow:hidden}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; border-radius:999px; border:1px solid rgba(233,214,181,.4); background:linear-gradient(180deg, rgba(233,214,181,.25), rgba(233,214,181,.15)); color:var(--text); text-decoration:none; box-shadow:var(--shadow); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);}
+    .btn.primary{background:linear-gradient(180deg, rgba(233,214,181,.9), rgba(233,214,181,.75)); color:#111; border-color:rgba(0,0,0,.05)}
+    .btn:hover{transform:translateY(-1px)}
+
+    main{padding:clamp(2rem,5vw,3rem) 0}
+    /* Outline removed */
+    section{padding:clamp(2rem,5vw,3rem) 0}
+    h1{font-size:clamp(1.8rem,4vw,3rem); margin:.2rem 0 1rem}
+    .kicker{letter-spacing:.12em; text-transform:uppercase; font-size:.65rem; color:rgba(13,27,42,.8)}
+    .lede{font-size:1.1rem; color:rgba(13,27,42,.8)}
+    .panel{border-radius:var(--radius); background:linear-gradient(180deg, rgba(233,214,181,.2), rgba(233,214,181,.1)); outline:1px solid rgba(233,214,181,.3); padding:1.2rem; box-shadow:var(--shadow)}
+    /* Intro layout with hero image */
+    .intro{display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:stretch}
+    .intro .hero{border-radius:var(--radius); outline:1px solid rgba(233,214,181,.3); background:linear-gradient(135deg, rgba(233,214,181,.3), rgba(233,214,181,.15)); min-height:400px; display:flex; align-items:center; justify-content:center; padding:1rem}
+    .intro .hero img{width:100%; height:auto; object-fit:contain; border-radius:8px; min-height:400px}
+    .intro .panel{padding:1rem}
+    @media (max-width: 960px){ 
+      .intro{grid-template-columns:1fr}
+      .intro .hero{min-height:300px}
+      .intro .hero img{min-height:300px; object-fit:contain}
+    }
+
+    /* Carousel */
+    .carousels-grid{display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:start; margin-top:1rem}
+    @media (max-width: 960px){ .carousels-grid{grid-template-columns:1fr} }
+    .carousel{position:relative; overflow:hidden; border-radius:var(--radius); background:linear-gradient(180deg, rgba(233,214,181,.2), rgba(233,214,181,.1)); outline:1px solid rgba(233,214,181,.3); margin:0; width:100%}
+    .slides{display:flex; transition:transform .5s ease}
+    .slide{min-width:100%; aspect-ratio:4/3; max-height:500px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(233,214,181,.3), rgba(233,214,181,.15)); padding:1rem}
+    .slide img{max-width:100%; max-height:100%; object-fit:contain; border-radius:8px; transition:transform 0.3s ease}
+    .slide:hover img{transform:scale(1.02)}
+    .caption{padding:.8rem 1rem; font-size:.95rem; color:rgba(13,27,42,.8)}
+    .controls{display:flex; justify-content:center; gap:.6rem; padding:1rem 0}
+    .dot{width:10px; height:10px; border-radius:50%; border:0; background:rgba(233,214,181,.5); cursor:pointer}
+    .dot.active{background:var(--accent); transform:scale(1.2)}
+    .arrow{position:absolute; top:50%; transform:translateY(-50%); width:32px; height:32px; border-radius:50%; border:1px solid rgba(233,214,181,.4); background:rgba(233,214,181,.2); color:var(--text); display:grid; place-items:center; cursor:pointer}
+    .arrow:hover{background:rgba(233,214,181,.3)}
+    .arrow.prev{left:12px}
+    .arrow.next{right:12px}
+
+    footer{margin-top:2rem; padding:2rem 0; border-top:1px solid rgba(13,27,42,.12); color:rgba(13,27,42,.8)}
+    .social-links{display:flex; gap:1rem; align-items:center}
+    .social-link{display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(13,27,42,.15); transition:all 0.3s ease; text-decoration:none; color:var(--blue)}
+    .social-link:hover{transform:translateY(-2px); background:rgba(255,255,255,.2); border-color:var(--brand); box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    .social-link svg{width:20px; height:20px; fill:currentColor}
+
+    @media (max-width: 640px){
+      nav ul{display:none}
+      .logo{width:60px; height:48px}
+      .logo img{width:100%; height:100%; object-fit:cover; transform:scale(1.3); transform-origin:center}
+      .slides{scroll-snap-type:x mandatory}
+      .slide{scroll-snap-align:center; aspect-ratio:3/2; max-height:350px; padding:0.5rem}
+    }
+    
+    @media (max-width: 480px){
+      .slide{aspect-ratio:1/1; max-height:300px; padding:0.5rem}
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="python kitchen variant 4.html" class="brand" style="text-decoration:none; color:inherit;">
+        <div class="logo"><img src="logo for navbar.jpg" alt="Python Kitchen logo" style="width:100%; height:100%; object-fit:cover; display:block; background:transparent; transform:scale(1.3); transform-origin:center"></div>
+        <div>
+          <strong>Python Kitchen Ltd</strong><br>
+          <span class="kicker">MADE FOR YOU</span>
+        </div>
+      </a>
+      <nav>
+        <a class="btn" href="python%20kitchen%20variant%204.html">← Back to site</a>
+        <a class="btn" href="contemporary-kitchens.html">Contemporary Kitchens</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container">
+      <div class="intro">
+        <div class="hero" aria-hidden="true">
+          <img src="compressed_bespoke_designer_kitchen_hero.jpg" alt="Bespoke designer kitchen hero">
+        </div>
+        <div class="panel">
+          <p class="kicker">Project</p>
+          <h1>Bespoke & Designer Kitchen</h1>
+          <p class="lede">Tailored, high‑end kitchens with premium materials, precision craft, and bespoke detailing.</p>
+          <p>Designed around your lifestyle—considered layouts, generous prep zones, and integrated storage for a calm, efficient space.</p>
+          <p>Hand‑picked stones, fine woods, and durable finishes paired with precision hardware for a timeless, refined feel.</p>
+          <p>We coordinate cabinetry, appliances, worktops, and layered lighting to deliver a cohesive designer look.</p>
+          <p>Book a consultation to explore finishes, layouts, and bespoke storage tailored to your home.</p>
+        </div>
+      </div>
+
+      <div class="carousels-grid">
+        <div class="carousel" aria-roledescription="carousel" aria-label="Project images">
+          <button class="arrow prev" aria-label="Previous image" id="prev">‹</button>
+          <div class="slides" id="slides">
+          <div class="slide">
+            <img src="bespoke designer kitchen 1 image carousel 1.jpg" alt="Bespoke designer kitchen 1 - Premium kitchen design with modern finishes" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+          </div>
+          <div class="slide">
+            <img src="compressed_kitchen1_image2.jpg" alt="Bespoke designer kitchen 1 - Elegant cabinetry and integrated appliances" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+          </div>
+          <div class="slide">
+            <img src="compressed_kitchen1_image3.jpg" alt="Bespoke designer kitchen 1 - Luxury finishes and custom storage" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+          </div>
+          <div class="slide">
+            <img src="compressed_kitchen1_image4.jpg" alt="Bespoke designer kitchen 1 - Contemporary design with premium materials" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+          </div>
+          </div>
+          <button class="arrow next" aria-label="Next image" id="next">›</button>
+          <div class="controls" id="dots" role="tablist" aria-label="Choose image"></div>
+          <div class="caption" id="caption">Bespoke designer kitchen 1 - Premium kitchen design with modern finishes</div>
+        </div>
+
+        <div class="carousel" aria-roledescription="carousel" aria-label="Project images 2">
+          <button class="arrow prev" aria-label="Previous image" id="prev2">‹</button>
+          <div class="slides" id="slides2">
+            <div class="slide">
+              <img src="bespoke designer kitchen 2 image 1.jfif" alt="Bespoke designer kitchen 2 - Premium cabinetry with brass accents" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="bespoke designer kitchen 2 image 2.jfif" alt="Bespoke designer kitchen 2 - Modern island with integrated storage" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="bespoke  designer kitchen 2 image 3.jfif" alt="Bespoke designer kitchen 2 - Elegant lighting and finishes" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="bespoke designer kitchen 2 image 4.jfif" alt="Bespoke designer kitchen 2 - Custom storage solutions" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="bespoke designer kitchen 2 image 5.jfif" alt="Bespoke designer kitchen 2 - Luxury finishes and hardware" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+          </div>
+          <button class="arrow next" aria-label="Next image" id="next2">›</button>
+          <div class="controls" id="dots2" role="tablist" aria-label="Choose image 2"></div>
+          <div class="caption" id="caption2">Bespoke designer kitchen 2 - Premium cabinetry with brass accents</div>
+        </div>
+      </div>
+
+      <div class="carousels-grid">
+        <div class="carousel" aria-roledescription="carousel" aria-label="Project images 3">
+          <button class="arrow prev" aria-label="Previous image" id="prev3">‹</button>
+          <div class="slides" id="slides3">
+            <div class="slide">
+              <img src="bespoke designer kitchen 3 image 1.jpg" alt="Bespoke designer kitchen 3 - Premium kitchen design with modern finishes" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="compressed_kitchen3_image2.jpg" alt="Bespoke designer kitchen 3 - Elegant cabinetry and integrated appliances" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="compressed_kitchen3_image3.jpg" alt="Bespoke designer kitchen 3 - Luxury finishes and custom storage" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="bespoke designer kitchen 3 image 4.jpg" alt="Bespoke designer kitchen 3 - Contemporary design with premium materials" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+          </div>
+          <button class="arrow next" aria-label="Next image" id="next3">›</button>
+          <div class="controls" id="dots3" role="tablist" aria-label="Choose image 3"></div>
+          <div class="caption" id="caption3">Bespoke designer kitchen 3 - Premium kitchen design with modern finishes</div>
+        </div>
+
+        <div class="carousel" aria-roledescription="carousel" aria-label="Project images 4">
+          <button class="arrow prev" aria-label="Previous image" id="prev4">‹</button>
+          <div class="slides" id="slides4">
+            <div class="slide">
+              <img src="compressed_kitchen4_image1.jpg" alt="Bespoke designer kitchen 4 - Premium kitchen design with modern finishes" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="compressed_kitchen4_image2.jpg" alt="Bespoke designer kitchen 4 - Elegant cabinetry and integrated appliances" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="compressed_kitchen4_image3.jpg" alt="Bespoke designer kitchen 4 - Luxury finishes and custom storage" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+            <div class="slide">
+              <img src="compressed_kitchen4_image4.jpg" alt="Bespoke designer kitchen 4 - Contemporary design with premium materials" style="width:100%; height:100%; object-fit:contain; border-radius:8px">
+            </div>
+          </div>
+          <button class="arrow next" aria-label="Next image" id="next4">›</button>
+          <div class="controls" id="dots4" role="tablist" aria-label="Choose image 4"></div>
+          <div class="caption" id="caption4">Bespoke designer kitchen 4 - Premium kitchen design with modern finishes</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap">
+      <div>© <span id="year"></span> Python Kitchen Ltd · All rights reserved</div>
+      <div>Company based in the UK • Privacy • Terms</div>
+    </div>
+  </footer>
+
+  <script>
+    // Page fade-in animation control
+    (function(){
+      let animationStarted = false;
+      
+      function startFadeIn() {
+        if (animationStarted) return;
+        animationStarted = true;
+        
+        // Add the loaded class to trigger animations
+        document.body.classList.add('loaded');
+        
+        // Add individual animation delays for better visual effect
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section, index) => {
+          section.style.transitionDelay = `${0.1 + (index * 0.1)}s`;
+        });
+      }
+      
+      // Start animation when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(startFadeIn, 150);
+        });
+      } else {
+        // DOM already loaded
+        setTimeout(startFadeIn, 150);
+      }
+      
+      // Fallback: start animation after a maximum delay
+      setTimeout(function() {
+        if (!animationStarted) {
+          startFadeIn();
+        }
+      }, 1000);
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function initCarousel({trackId, dotsId, captionId, prevId, nextId, captions}){
+      const track = document.getElementById(trackId);
+      const slides = Array.from(track.querySelectorAll('.slide img'));
+      const dots = document.getElementById(dotsId);
+      const caption = document.getElementById(captionId);
+      const prev = document.getElementById(prevId);
+      const next = document.getElementById(nextId);
+      let index = 0;
+
+      function update(){
+        track.style.transform = `translateX(${-index*100}%)`;
+        caption.textContent = captions[index];
+        dots.querySelectorAll('button').forEach((d,i)=>{
+          d.classList.toggle('active', i===index);
+          d.setAttribute('aria-selected', i===index ? 'true':'false');
+        });
+      }
+      slides.forEach((_,i)=>{
+        const b = document.createElement('button');
+        b.className = 'dot' + (i===0 ? ' active':'');
+        b.setAttribute('aria-label', `Go to image ${i+1}`);
+        b.addEventListener('click', ()=>{ index=i; update(); });
+        dots.appendChild(b);
+      });
+      prev.addEventListener('click', ()=>{ index = (index===0? slides.length-1 : index-1); update(); });
+      next.addEventListener('click', ()=>{ index = (index===slides.length-1? 0 : index+1); update(); });
+
+      let timer = setInterval(()=>{ next.click(); }, 5000);
+      const carousel = document.getElementById(trackId).closest('.carousel');
+      carousel.addEventListener('mouseenter', ()=> clearInterval(timer));
+      carousel.addEventListener('mouseleave', ()=> timer = setInterval(()=>{ next.click(); }, 5000));
+
+      update();
+    }
+
+    initCarousel({
+      trackId:'slides', dotsId:'dots', captionId:'caption', prevId:'prev', nextId:'next',
+      captions:[
+        'Premium kitchen design with modern finishes and elegant cabinetry',
+        'Integrated appliances with custom storage solutions and luxury finishes',
+        'Contemporary design featuring premium materials and sophisticated lighting',
+        'Bespoke kitchen with precision craftsmanship and timeless appeal'
+      ]
+    });
+
+    initCarousel({
+      trackId:'slides2', dotsId:'dots2', captionId:'caption2', prevId:'prev2', nextId:'next2',
+      captions:[
+        'Premium cabinetry with brass accents and sophisticated hardware',
+        'Modern island design with integrated storage and seamless functionality',
+        'Elegant lighting solutions and premium finishes throughout',
+        'Custom storage solutions designed for maximum efficiency and style',
+        'Luxury finishes and precision hardware for a refined kitchen experience'
+      ]
+    });
+
+    initCarousel({
+      trackId:'slides3', dotsId:'dots3', captionId:'caption3', prevId:'prev3', nextId:'next3',
+      captions:[
+        'Premium kitchen design with modern finishes and innovative layouts',
+        'Elegant cabinetry and integrated appliances for seamless functionality',
+        'Luxury finishes and custom storage solutions for the discerning homeowner',
+        'Contemporary design with premium materials and exceptional craftsmanship'
+      ]
+    });
+
+    initCarousel({
+      trackId:'slides4', dotsId:'dots4', captionId:'caption4', prevId:'prev4', nextId:'next4',
+      captions:[
+        'Bespoke designer kitchen 4 - Premium kitchen design with modern finishes',
+        'Bespoke designer kitchen 4 - Elegant cabinetry and integrated appliances',
+        'Bespoke designer kitchen 4 - Luxury finishes and custom storage',
+        'Bespoke designer kitchen 4 - Contemporary design with premium materials'
+      ]
+    });
+
+    // Navbar scroll behavior - show on scroll up, hide on scroll down
+    (function(){
+      let lastScrollTop = 0;
+      const header = document.querySelector('header');
+      const threshold = 100;
+      
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop <= 10) {
+          // At the top - always show navbar
+          header.classList.remove('nav-hidden');
+          lastScrollTop = scrollTop;
+        } else if (scrollTop > threshold) {
+          if (scrollTop > lastScrollTop) {
+            // Scrolling down - hide navbar
+            header.classList.add('nav-hidden');
+          } else {
+            // Scrolling up - show navbar
+            header.classList.remove('nav-hidden');
+          }
+          lastScrollTop = scrollTop;
+        }
+      });
+    })();
+  </script>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap">
+      <div>© <span id="year"></span> Python Kitchen Ltd · All rights reserved</div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/17GL1smiJN/?mibextid=wwXIfr" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/pythonkitchenltd?igsh=c3BsamlhaHI3YjJr&utm_source=qr" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@pythonkitchen?_r=1&_t=ZN-917j1NHcxIE" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/python-kitchen-ltd-singh-3397b9360" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+      </div>
+      <div>Company based in the UK • Privacy • Terms</div>
+    </div>
+  </footer>
+</body>
+</html>
+
+

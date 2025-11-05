@@ -1,0 +1,2201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Python Kitchen Ltd · Interior Design · UK</title>
+  <meta name="title" content="Python Kitchen Ltd · Interior Design · UK" />
+  <meta name="description" content="Python Kitchen Ltd — Bespoke UK interior design specialising in kitchen modules and fitted wardrobes. Explore our portfolio, estimate costs, and book a consultation."/>
+  <meta name="keywords" content="bespoke kitchens, fitted wardrobes, interior design UK, kitchen modules, custom wardrobes, kitchen installation, bedroom design, home office design, Python Kitchen" />
+  <meta name="author" content="Python Kitchen Ltd" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.pythonkitchen.co.uk/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pythonkitchen.co.uk/" />
+  <meta property="og:title" content="Python Kitchen Ltd · Interior Design · UK" />
+  <meta property="og:description" content="Bespoke UK interior design specialising in kitchen modules and fitted wardrobes. Explore our portfolio, estimate costs, and book a consultation." />
+  <meta property="og:image" content="https://www.pythonkitchen.co.uk/hero section image.png" />
+  <meta property="og:site_name" content="Python Kitchen Ltd" />
+  <meta property="og:locale" content="en_GB" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.pythonkitchen.co.uk/" />
+  <meta name="twitter:title" content="Python Kitchen Ltd · Interior Design · UK" />
+  <meta name="twitter:description" content="Bespoke UK interior design specialising in kitchen modules and fitted wardrobes. Explore our portfolio, estimate costs, and book a consultation." />
+  <meta name="twitter:image" content="https://www.pythonkitchen.co.uk/hero section image.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="python kitchen dark logo.png">
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Python Kitchen Ltd",
+    "image": "https://www.pythonkitchen.co.uk/hero section image.png",
+    "description": "Bespoke UK interior design specialising in kitchen modules and fitted wardrobes. Explore our portfolio, estimate costs, and book a consultation.",
+    "url": "https://www.pythonkitchen.co.uk/",
+    "telephone": "+447951399280",
+    "email": "info@PYTHONKITCHEN.CO.UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "51.5074",
+      "longitude": "-0.1278"
+    },
+    "priceRange": "$$",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    "serviceArea": {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Interior Design Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Kitchen Modules",
+            "description": "Modular, ergonomic kitchens tailored to your space: cabinetry, worktops, lighting, appliances integration and smart storage."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Fitted Wardrobes",
+            "description": "Floor‑to‑ceiling wardrobes with custom internals: rails, drawers, shoe towers, mirrors, soft‑close hardware."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Design & Visualisation",
+            "description": "CAD layouts and realistic previews so you can see proportions, finishes and lighting before we build."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Manufacture & Install",
+            "description": "Precision CNC fabrication and clean on‑site installation with dust control, compliance and sign‑off."
+          }
+        }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "54"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Python Kitchen Ltd",
+    "url": "https://www.pythonkitchen.co.uk/",
+    "logo": "https://www.pythonkitchen.co.uk/python kitchen dark logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+447951399280",
+      "contactType": "Customer Service",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://wa.me/447951399280"
+    ]
+  }
+  </script>
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root{
+      --bg:#E9D6B5;              /* Champagne Gold / Light Beige background */
+      --blue:#0D1B2A;            /* Deep navy (brand blue) */
+      --text:var(--blue);        /* Base text now blue */
+      --accent:#FAF9F6;          /* Warm ivory (corrected from #FAF9F) */
+      --muted:#1B263B;           /* Slightly lighter navy */
+      --brand:#C8AD7F;           /* Soft brass accent for subtle highlights */
+      --ok:#31c48d;              /* success */
+      --warn:#f59e0b;            /* warning */
+      --err:#ef4444;             /* error */
+      --radius:1.25rem;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+
+    /* ===== GLOBAL RESET ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; padding-top:80px; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--text); background:radial-gradient(1200px 600px at 10% -10%, rgba(255,255,255,.06), transparent 60%),
+                        radial-gradient(900px 500px at 100% 10%, rgba(255,255,255,.05), transparent 60%), var(--bg);
+      line-height:1.6;
+    }
+    
+    /* ===== FADE-IN ANIMATION ===== */
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+    
+    @keyframes fadeInUp{
+      from{opacity:0; transform:translateY(30px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+    
+    /* Initial state - hidden */
+    body{
+      opacity:0;
+      transition:opacity 0.8s ease-out;
+      overflow-x:hidden; /* Prevent horizontal scroll during animation */
+    }
+    
+    /* When loaded, fade in */
+    body.loaded{
+      opacity:1;
+    }
+    
+    /* Staggered animations for main content */
+    main, header, footer{
+      opacity:0;
+      transform:translateY(20px);
+      transition:opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    body.loaded main,
+    body.loaded header,
+    body.loaded footer{
+      opacity:1;
+      transform:translateY(0);
+    }
+    
+    /* Staggered animations for sections */
+    section{
+      opacity:0;
+      transform:translateY(30px);
+      transition:opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    body.loaded section{
+      opacity:1;
+      transform:translateY(0);
+    }
+    
+    /* Add slight delays for different sections */
+    body.loaded section:nth-child(1){transition-delay:0.1s;}
+    body.loaded section:nth-child(2){transition-delay:0.2s;}
+    body.loaded section:nth-child(3){transition-delay:0.3s;}
+    body.loaded section:nth-child(4){transition-delay:0.4s;}
+    body.loaded section:nth-child(5){transition-delay:0.5s;}
+    body.loaded section:nth-child(6){transition-delay:0.6s;}
+    body.loaded section:nth-child(7){transition-delay:0.7s;}
+    a{color:inherit}
+    img{max-width:100%; display:block}
+    .container{width:min(1200px, 92%); margin-inline:auto}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; border-radius:999px; border:1px solid rgba(233,214,181,.4); background:linear-gradient(180deg, rgba(233,214,181,.25), rgba(233,214,181,.15)); color:var(--text); text-decoration:none; box-shadow:var(--shadow); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);}
+    .btn:hover{transform:translateY(-1px);}
+    .btn.primary{background:linear-gradient(180deg, rgba(233,214,181,.9), rgba(233,214,181,.75)); color:#111; border-color:rgba(0,0,0,.05)}
+    .chip{display:inline-flex; align-items:center; gap:.5rem; border:1px solid rgba(255,255,255,.18); padding:.3rem .7rem; border-radius:999px; background:rgba(255,255,255,.06); font-size:.7rem}
+
+    /* ===== NAVBAR ===== */
+    header{position:fixed; top:0; left:0; right:0; z-index:9999; background:#E9D6B5; backdrop-filter: blur(10px); border-bottom:1px solid rgba(13,27,42,.12); transition: transform 0.3s ease-out; width:100%;}
+    header.nav-hidden{transform: translateY(-100%) !important;}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    .brand{display:flex; align-items:center; gap:.75rem}
+    .logo{width:80px; height:64px; display:flex; align-items:center; justify-content:center; background:transparent; border-radius:0; overflow:hidden}
+    /* Slight upward nudge to align logo with brand text */
+    .brand .logo{transform:translateY(-3px)}
+    nav ul{list-style:none; display:flex; gap:1.2rem; margin:0; padding:0}
+    nav a{opacity:.9; text-decoration:none}
+    nav a:hover, nav a:focus{opacity:1}
+    /* Dropdown */
+    nav li{position:relative}
+    .dropdown > a::after{content:"▾"; margin-left:.35rem; font-size:.8em}
+    .dropdown-menu{position:absolute; top:100%; left:0; background:#E9D6B5; border:1px solid rgba(13,27,42,.12); border-radius:.6rem; box-shadow:0 10px 30px rgba(0,0,0,.12); padding:.4rem; display:none; min-width:220px; z-index:10000}
+    .dropdown-menu a{display:block; padding:.55rem .8rem; border-radius:.45rem; color:var(--blue); opacity:1}
+    .dropdown-menu a:hover, .dropdown-menu a:focus{background:rgba(13,27,42,.06)}
+    .dropdown:hover > .dropdown-menu{display:block}
+    /* Nested submenu */
+    .dropdown-submenu{position:relative}
+    .dropdown-submenu > a::after{content:"▸"; margin-left:.35rem; font-size:.8em}
+    .dropdown-submenu .dropdown-menu{top:0; left:100%; margin-left:.25rem}
+    .dropdown-submenu:hover > .dropdown-menu{display:block}
+    /* Mobile/touch support: show when parent has .open */
+    .dropdown.open > .dropdown-menu{display:block}
+    .dropdown-submenu.open > .dropdown-menu{display:block}
+    @media (hover: none){
+      .dropdown > .dropdown-menu, .dropdown-submenu > .dropdown-menu{display:none}
+      .dropdown.open > .dropdown-menu, .dropdown-submenu.open > .dropdown-menu{display:block}
+    }
+
+    /* ===== HERO ===== */
+    .hero{position:relative; padding:clamp(3rem,5vw,6rem) 0}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:2rem; align-items:center}
+    .headline{font-size:clamp(2rem,4.6vw,4rem); line-height:1.1; margin:0 0 1rem}
+    .sub{font-size:clamp(1rem,1.4vw,1.15rem); color:rgba(13,27,42,.8)}
+    .hero-art{position:relative; aspect-ratio:1/1; border-radius:var(--radius); overflow:hidden; background:linear-gradient(135deg, rgba(250,249,246,.25), rgba(255,255,255,.06)); outline:1px solid rgba(255,255,255,.15)}
+    .floating{
+      position:absolute; inset:8%; border-radius:var(--radius);
+      background:radial-gradient(circle at 20% 20%, rgba(250,249,246,.6), transparent 35%),
+                 radial-gradient(circle at 80% 70%, rgba(200,173,127,.35), transparent 45%),
+                 linear-gradient(120deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      animation:float 10s ease-in-out infinite alternate;
+    }
+    @keyframes float{from{transform:translateY(-1%)} to{transform:translateY(2%)} }
+
+    /* ===== SECTIONS ===== */
+    section{padding:clamp(2.5rem,5vw,4.5rem) 0}
+    .section-head{display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1.5rem}
+    .section-head h2{margin:0; font-size:clamp(1.6rem,3.2vw,2.4rem)}
+    .kicker{letter-spacing:.12em; text-transform:uppercase; font-size:.65rem; color:rgba(250,249,246,.85)}
+
+    /* ===== SERVICES GRID ===== */
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1rem}
+    .card{grid-column:span 4; border-radius:var(--radius); padding:1.1rem; background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); outline:1px solid rgba(255,255,255,.12); box-shadow:var(--shadow); transition:all 0.3s ease; cursor:pointer}
+    .card:hover{transform:translateY(-8px) scale(1.02); box-shadow:0 20px 40px rgba(0,0,0,.3), 0 0 0 1px rgba(200,173,127,.2); background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.08))}
+    .card h3{margin:.2rem 0 .6rem}
+    .card p{color:rgba(13,27,42,.85)}
+    .icon{width:42px; height:42px; display:grid; place-items:center; border-radius:.8rem; background:rgba(250,249,246,.85); color:#111; font-weight:800; transition:all 0.3s ease}
+    .card:hover .icon{transform:scale(1.1); background:rgba(200,173,127,.9); color:#fff}
+
+    /* ===== VIDEO GALLERY ===== */
+    .video-gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:1rem}
+    .video-container{position:relative; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; outline:1px solid rgba(255,255,255,.12); background:linear-gradient(135deg, rgba(250,249,246,.25), rgba(255,255,255,.06)); box-shadow:var(--shadow); transition:all 0.3s ease}
+    .video-container:hover{transform:translateY(-4px); box-shadow:0 20px 40px rgba(0,0,0,.3)}
+    .video-container video{width:100%; height:100%; object-fit:cover; border-radius:var(--radius)}
+    .video-overlay{position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,.1), rgba(0,0,0,.3)); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s ease; pointer-events:none}
+    .video-container:hover .video-overlay{opacity:1}
+    .play-button{width:60px; height:60px; border-radius:50%; background:rgba(255,255,255,.9); color:var(--blue); display:flex; align-items:center; justify-content:center; font-size:1.5rem; cursor:pointer; transition:all 0.3s ease; box-shadow:0 4px 12px rgba(0,0,0,.2); pointer-events:auto}
+    .play-button:hover{transform:scale(1.1); background:var(--accent); color:#111}
+    .video-title{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(0,0,0,.8)); color:white; padding:1rem; font-weight:600; font-size:.9rem}
+
+    /* ===== VIDEO CAROUSEL ===== */
+    .video-carousel{position:relative; overflow:hidden; margin-top:1rem}
+    .video-track{display:flex; gap:1rem; transition:transform .5s ease-in-out; will-change:transform}
+    .video-slide{flex:0 0 calc((100% - 2rem) / 3)} /* 3 per view with 1rem gaps */
+    .video-carousel-controls{display:flex; justify-content:center; gap:12px; margin-top:12px}
+    .video-carousel-btn{width:40px; height:40px; border-radius:50%; border:1px solid rgba(13,27,42,.2); background:#E9D6B5; color:var(--blue); cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(0,0,0,0.1); transition:all 0.2s ease; font-size:18px; font-weight:500}
+    .video-carousel-btn:hover{background:rgba(233,214,181,.8); border-color:var(--brand); color:var(--blue); transform:translateY(-1px); box-shadow:0 2px 6px rgba(0,0,0,0.15)}
+    .video-carousel-btn:disabled{opacity:.4; cursor:not-allowed; transform:none}
+
+    /* ===== PORTFOLIO ===== */
+    .filterbar{display:flex; flex-wrap:wrap; gap:.6rem}
+    .filterbar button{cursor:pointer}
+    .portfolio .card{grid-column:span 3; overflow:hidden; padding:0}
+    .portfolio .thumb{aspect-ratio:4/3; background:linear-gradient(135deg, rgba(250,249,246,.3), rgba(255,255,255,.05)); display:grid; place-items:center}
+    .portfolio .thumb span{background:rgba(0,0,0,.35); padding:.4rem .6rem; border-radius:.6rem}
+    .portfolio .meta{padding:.6rem .8rem; display:flex; align-items:center}
+    .portfolio .meta h3{margin:.1rem 0 .2rem; font-size:1rem}
+    .portfolio .meta .sub{font-size:.9rem}
+
+
+    /* ===== GOOGLE REVIEWS CAROUSEL ===== */
+    .reviews-carousel{position:relative; overflow:hidden; border-radius:12px; background:#fff; outline:1px solid #e0e0e0; padding:16px}
+    .reviews-container{display:flex; gap:16px; padding:8px 0; transition:transform 0.5s ease-in-out; will-change:transform}
+    .review-card{flex:0 0 25%; padding:20px; display:flex; flex-direction:column; gap:12px; background:#fff; border:1px solid #e0e0e0; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+    .review-card:hover{transform:translateY(-1px); box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+    .review-header{display:flex; align-items:flex-start; gap:12px; margin-bottom:8px}
+    .reviewer-avatar{width:40px; height:40px; border-radius:50%; background:#4285f4; display:flex; align-items:center; justify-content:center; font-weight:500; color:#fff; font-size:16px; flex-shrink:0}
+    .reviewer-info{flex:1; min-width:0}
+    .reviewer-info h4{margin:0 0 4px 0; font-size:14px; font-weight:500; color:#202124; line-height:1.3}
+    .reviewer-info p{margin:0; font-size:12px; color:#5f6368; line-height:1.3}
+    .stars{display:flex; gap:1px; margin:4px 0 8px 0; color:#FFD700; font-size:16px; line-height:1}
+    .review-text{font-size:14px; line-height:1.4; color:#3c4043; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; margin-bottom:8px}
+    .review-date{font-size:12px; color:#5f6368; margin-top:auto}
+    .google-badge{display:inline-flex; align-items:center; gap:4px; padding:4px 8px; background:#f8f9fa; border:1px solid #dadce0; border-radius:16px; font-size:11px; color:#5f6368; font-weight:500; margin-top:8px}
+    .carousel-controls{display:flex; justify-content:center; gap:12px; margin-top:16px}
+    .carousel-btn{width:40px; height:40px; border-radius:50%; border:1px solid #dadce0; background:#E9D6B5; color:#5f6368; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(0,0,0,0.1); transition:all 0.2s ease; font-size:18px; font-weight:500}
+    .carousel-btn:hover{background:rgba(233,214,181,.8); border-color:#4285f4; color:#4285f4; transform:translateY(-1px); box-shadow:0 2px 6px rgba(0,0,0,0.15)}
+    .carousel-btn:disabled{opacity:.4; cursor:not-allowed; transform:none; background:rgba(233,214,181,.6); color:#9aa0a6}
+    .carousel-dots{display:flex; gap:8px; justify-content:center; margin-top:16px}
+    .carousel-dot{width:8px; height:8px; border-radius:50%; border:0; background:#dadce0; cursor:pointer; transition:all 0.3s ease}
+    .carousel-dot.active{background:#4285f4; transform:scale(1.2)}
+
+    @media (max-width: 1024px){
+      .review-card{flex-basis:33.3333%}
+    }
+    @media (max-width: 768px){
+      .review-card{flex-basis:50%}
+    }
+    @media (max-width: 520px){
+      .review-card{flex-basis:100%}
+    }
+
+    /* ===== COLLABORATIONS CAROUSEL ===== */
+    .collaborations-carousel{position:relative; overflow:hidden; margin:2rem 0; padding:2rem 0}
+    .collaborations-track{display:flex; gap:2rem; transition:transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); will-change:transform; align-items:center}
+    .collaborations-slide{flex:0 0 auto; width:180px; height:100px; display:flex; align-items:center; justify-content:center; padding:1rem; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08); transition:transform 0.3s ease, box-shadow 0.3s ease}
+    .collaborations-slide:hover{transform:translateY(-4px); box-shadow:0 4px 12px rgba(0,0,0,0.12)}
+    .collaborations-slide img{width:100%; height:100%; object-fit:contain; filter:grayscale(20%); opacity:0.9; transition:filter 0.3s ease, opacity 0.3s ease}
+    .collaborations-slide:hover img{filter:grayscale(0%); opacity:1}
+    .collaborations-controls{display:flex; justify-content:center; gap:12px; margin-top:24px}
+    .collaborations-btn{width:48px; height:48px; border-radius:50%; border:1px solid rgba(13,27,42,.2); background:#E9D6B5; color:var(--blue); cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:all 0.25s ease; font-size:20px; font-weight:600}
+    .collaborations-btn:hover{background:rgba(233,214,181,.8); border-color:var(--brand); color:var(--blue); transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+    .collaborations-btn:active{transform:translateY(0); box-shadow:0 2px 6px rgba(0,0,0,0.12)}
+    
+    @media (max-width: 768px){
+      .collaborations-slide{width:150px; height:85px}
+    }
+    @media (max-width: 480px){
+      .collaborations-slide{width:120px; height:70px; padding:0.75rem}
+    }
+
+    /* ===== STATS ===== */
+    .stats-section{position:relative; background:linear-gradient(135deg, rgba(0,0,0,.7), rgba(13,27,42,.6)), url('carpanter.webp'), linear-gradient(135deg, #1a1a1a, #2d2d2d); background-size:cover; background-position:center; background-attachment:fixed; border-radius:var(--radius); overflow:hidden; margin:2rem 0}
+    .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; padding:3rem 2rem; position:relative; z-index:2}
+    .stat-card{text-align:center; padding:2rem 1rem; background:rgba(255,255,255,.1); border-radius:var(--radius); outline:1px solid rgba(255,255,255,.2); box-shadow:0 8px 32px rgba(0,0,0,.3); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:all 0.3s ease; border:1px solid rgba(255,255,255,.1)}
+    .stat-card:hover{transform:translateY(-4px); background:rgba(255,255,255,.15); box-shadow:0 12px 40px rgba(0,0,0,.4)}
+    .stat-number{font-size:clamp(2.5rem,4vw,3.5rem); font-weight:800; color:#ffffff; margin-bottom:.5rem; line-height:1; text-shadow:0 3px 6px rgba(0,0,0,.6), 0 1px 2px rgba(0,0,0,.8)}
+    .stat-label{font-size:clamp(.9rem,1.2vw,1rem); color:rgba(255,255,255,.95); font-weight:500; line-height:1.3; text-shadow:0 2px 4px rgba(0,0,0,.6), 0 1px 2px rgba(0,0,0,.8)}
+
+    /* ===== FAQ ===== */
+    details{background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.01)); padding:1rem; border-radius:var(--radius); border:1px solid #000}
+    details+details{margin-top:.6rem}
+    summary{cursor:pointer; font-weight:600}
+
+    /* ===== CONTACT ===== */
+    /* Wrapper outline removed; keep per-field outlines below */
+    form{display:grid; gap:.8rem}
+    /* Outline each field group (Name, Email, Phone, Postcode) */
+    #contact .form-row > div{border:1px solid #000; border-radius:var(--radius); padding:.75rem; background:rgba(0,0,0,.01)}
+    #contact .form-row > div label{display:block; margin-bottom:.35rem}
+    /* Outline standalone fields (select and textarea) */
+    #contact select{border:1px solid #000; border-radius:var(--radius); background:#fff}
+    #contact textarea{border:1px solid #000; border-radius:var(--radius); background:#fff}
+    input, textarea, select{width:100%; padding:.9rem 1rem; border-radius:.8rem; border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.08); color:var(--text)}
+    input:focus, textarea:focus, select:focus{outline:2px solid var(--brand)}
+    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:.8rem}
+    .toast{position:fixed; right:1rem; bottom:1rem; padding:.8rem 1rem; background:rgba(250,249,246,.95); color:#111; border-radius:.8rem; box-shadow:var(--shadow); display:none}
+
+    /* ===== FOOTER ===== */
+    footer{margin-top:2rem; padding:2rem 0; border-top:1px solid rgba(13,27,42,.12); color:rgba(13,27,42,.8)}
+    .social-links{display:flex; gap:1rem; align-items:center}
+    .social-link{display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(13,27,42,.15); transition:all 0.3s ease; text-decoration:none; color:var(--blue)}
+    .social-link:hover{transform:translateY(-2px); background:rgba(255,255,255,.2); border-color:var(--brand); box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    .social-link svg{width:20px; height:20px; fill:currentColor}
+
+    /* ===== WHATSAPP FLOATING BUTTON ===== */
+    .whatsapp-float{
+      position:fixed; bottom:2rem; right:2rem; z-index:1000;
+      width:60px; height:60px; border-radius:50%; 
+      background:#25D366; color:white; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 12px rgba(37,211,102,.3); text-decoration:none; font-size:1.5rem;
+      transition:all 0.3s ease; backdrop-filter:blur(10px);
+      animation:pulse 2s infinite;
+    }
+    .whatsapp-float:hover{transform:scale(1.1); box-shadow:0 6px 20px rgba(37,211,102,.4); animation:none;}
+    .whatsapp-float::before{
+      content:"Contact us"; position:absolute; right:70px; top:50%; transform:translateY(-50%);
+      background:rgba(0,0,0,.8); color:white; padding:.5rem .8rem; border-radius:.5rem;
+      font-size:.8rem; white-space:nowrap; opacity:0; transition:opacity 0.3s ease;
+      pointer-events:none;
+    }
+    .whatsapp-float:hover::before{opacity:1;}
+    @keyframes pulse{0%,100%{transform:scale(1)} 50%{transform:scale(1.05)}}
+
+    /* ===== UTIL ===== */
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px){
+      .hero-grid{grid-template-columns:1fr}
+      .card, .portfolio .card{grid-column:span 6}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .stats-section{background-attachment:scroll}
+      .video-gallery{grid-template-columns:repeat(2,1fr); gap:1rem}
+      .video-slide{flex-basis:calc((100% - 1rem) / 2)}
+    }
+    @media (max-width: 640px){
+      nav ul{display:none}
+      .logo{width:60px; height:48px}
+      .logo img{width:100%; height:100%; object-fit:cover; transform:scale(1.3); transform-origin:center}
+      .card, .portfolio .card{grid-column:span 12}
+      .form-row{grid-template-columns:1fr}
+      .stats-grid{grid-template-columns:1fr; gap:1rem; padding:2rem 1rem}
+      .stats-section{background-attachment:scroll}
+      .video-gallery{grid-template-columns:1fr; gap:1rem}
+      .video-slide{flex-basis:100%}
+      footer .container{flex-direction:column; align-items:center; text-align:center}
+      .social-links{justify-content:center; margin:1rem 0}
+    }
+
+    /* Respect motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      *{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important}
+    }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a href="python kitchen variant 4.html" class="brand" style="text-decoration:none; color:inherit;">
+        <div class="logo"><img src="logo for navbar.jpg" alt="Python Kitchen logo" style="width:100%; height:100%; object-fit:cover; display:block; background:transparent; transform:scale(1.3); transform-origin:center"></div>
+        <div>
+          <strong>Python Kitchen Ltd</strong><br>
+          <span class="chip" title="UK company">MADE FOR YOU</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a href="#services" aria-haspopup="true" aria-expanded="false">Services</a>
+            <div class="dropdown-menu" role="menu" aria-label="Services submenu">
+              <div class="dropdown-submenu">
+                <a href="#" aria-haspopup="true" aria-expanded="false" role="menuitem">Kitchen</a>
+                <div class="dropdown-menu" role="menu" aria-label="Kitchen submenu">
+                  <a href="bespoke-designer-kitchen.html" role="menuitem">Bespoke & Designer Kitchen</a>
+                  <a href="contemporary-kitchens.html" role="menuitem">Contemporary Kitchens</a>
+                  <a href="modern-kitchens.html" role="menuitem">Modern Kitchens</a>
+                </div>
+              </div>
+              <div class="dropdown-submenu">
+                <a href="#" aria-haspopup="true" aria-expanded="false" role="menuitem">Room interiors</a>
+                <div class="dropdown-menu" role="menu" aria-label="Room interiors submenu">
+                  <a href="bespoke-bedroom.html" role="menuitem">Bespoke Bedroom</a>
+                  <a href="luxury-living-room.html" role="menuitem">Luxury living room</a>
+                  <a href="home-office-design.html" role="menuitem">Home office design</a>
+                  <a href="understairs and loft storage solutions.html" role="menuitem">Understairs and Loft Storage Solutions</a>
+                </div>
+              </div>
+              <a href="in-home-temple-design.html" role="menuitem">In - Home Temple</a>
+              <a href="https://www.myabd.co.uk/" role="menuitem" target="_blank" rel="noopener noreferrer">Glazing</a>
+            </div>
+          </li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="about-us.html">About us</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#contact">Get Quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <p class="kicker">Bespoke kitchens & wardrobes</p>
+        <h1 class="headline">Crafted interiors that work as beautifully as they look.</h1>
+        <p class="sub">We design, manufacture and install precision-built kitchen modules and fitted wardrobes across the UK. Seamless project management, premium materials, immaculate finishes.</p>
+        <div style="display:flex; gap:.8rem; margin-top:1rem">
+          <a class="btn primary" href="#contact">Book consultation</a>
+          <a class="btn" href="#portfolio">See our work</a>
+        </div>
+        <div style="margin-top:1rem; display:flex; gap:.6rem; align-items:center">
+          <span class="chip">⏱️ Avg. install 10–15 days</span>
+          <span class="chip">🛡️ 5‑year workmanship warranty</span>
+          <span class="chip">🇬🇧 UK-wide service</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="hero section image.png" alt="Beautiful kitchen interior design" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius);">
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="container">
+      <div class="section-head">
+        <h2>What we do</h2>
+        <span class="kicker">End‑to‑end expertise</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">🍳</div>
+          <h3>Kitchen Modules</h3>
+          <p>Modular, ergonomic kitchens tailored to your space: cabinetry, worktops, lighting, appliances integration and smart storage.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧥</div>
+          <h3>Fitted Wardrobes</h3>
+          <p>Floor‑to‑ceiling wardrobes with custom internals: rails, drawers, shoe towers, mirrors, soft‑close hardware.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📐</div>
+          <h3>Design & Visualisation</h3>
+          <p>CAD layouts and realistic previews so you can see proportions, finishes and lighting before we build.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🛠️</div>
+          <h3>Manufacture & Install</h3>
+          <p>Precision CNC fabrication and clean on‑site installation with dust control, compliance and sign‑off.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🌿</div>
+          <h3>Materials & Finishes</h3>
+          <p>Durable laminates, solid woods and eco‑friendly paints. We advise on maintenance for long‑term beauty.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🤝</div>
+          <h3>Aftercare</h3>
+          <p>5‑year workmanship warranty and responsive support. Adjustments and upgrades when you need them.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== OUR WORK ===== -->
+    <section class="container">
+      <div class="section-head">
+        <h2>OUR WORK</h2>
+        <span class="kicker">See our craftsmanship</span>
+      </div>
+      <div class="video-carousel" aria-roledescription="carousel" aria-label="Project videos">
+        <div class="video-track" id="videoTrack">
+          <div class="video-slide">
+            <div class="video-container">
+              <video controls preload="metadata">
+                <source src="python kitchen video 1.mp4" type="video/mp4">
+                <source src="python kitchen video 1.webm" type="video/webm">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-overlay">
+                <div class="play-button">▶</div>
+              </div>
+              <div class="video-title">Bespoke Kitchen Interior</div>
+            </div>
+          </div>
+          <div class="video-slide">
+            <div class="video-container">
+              <video controls preload="metadata">
+                <source src="python kitchen video 2.mp4" type="video/mp4">
+                <source src="kitchen-transformation-2.webm" type="video/webm">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-overlay">
+                <div class="play-button">▶</div>
+              </div>
+              <div class="video-title">In-Home Bar Design</div>
+            </div>
+          </div>
+          <div class="video-slide">
+            <div class="video-container">
+              <video controls preload="metadata">
+                <source src="python kitchen video 3.mp4" type="video/mp4">
+                <source src="python kitchen video 3.webm" type="video/webm">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-overlay">
+                <div class="play-button">▶</div>
+              </div>
+              <div class="video-title">Modern Kitchen Interior</div>
+            </div>
+          </div>
+          <div class="video-slide">
+            <div class="video-container">
+              <video controls preload="metadata">
+                <source src="compressed_python_kitchen_video_4.mp4" type="video/mp4">
+                <source src="python kitchen video 4.webm" type="video/webm">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-overlay">
+                <div class="play-button">▶</div>
+              </div>
+              <div class="video-title">Contemporary Kitchen Interior</div>
+            </div>
+          </div>
+          <div class="video-slide">
+            <div class="video-container">
+              <video controls preload="metadata">
+                <source src="python kitchen video 5.mp4" type="video/mp4">
+                <source src="python kitchen video 5.webm" type="video/webm">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-overlay">
+                <div class="play-button">▶</div>
+              </div>
+              <div class="video-title">Luxury Kitchen Interior</div>
+            </div>
+          </div>
+          <div class="video-slide">
+            <div class="video-container">
+              <video controls preload="metadata">
+                <source src="python kitchen video 6.mp4" type="video/mp4">
+                <source src="python kitchen video 6.webm" type="video/webm">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-overlay">
+                <div class="play-button">▶</div>
+              </div>
+              <div class="video-title">Python Kitchen Project 6</div>
+            </div>
+          </div>
+        </div>
+        <div class="video-carousel-controls">
+          <button class="video-carousel-btn" id="videoPrev" aria-label="Previous videos">‹</button>
+          <button class="video-carousel-btn" id="videoNext" aria-label="Next videos">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" class="container portfolio">
+      <div class="section-head">
+        <h2>Selected Projects</h2>
+      </div>
+      <div class="grid" id="portfolioGrid"></div>
+    </section>
+
+
+    <!-- ===== GOOGLE REVIEWS ===== -->
+    <section id="testimonials" class="container">
+      <div class="section-head">
+        <h2>What clients say</h2>
+        <span class="kicker">Google Reviews</span>
+      </div>
+      <div class="reviews-carousel" aria-roledescription="carousel" aria-label="Google Reviews">
+        <div class="reviews-container" id="reviewsContainer">
+          <!-- Reviews will be populated by JavaScript -->
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevBtn" aria-label="Previous review">‹</button>
+          <button class="carousel-btn" id="nextBtn" aria-label="Next review">›</button>
+        </div>
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Choose review">
+          <!-- Dots will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COLLABORATIONS ===== -->
+    <section class="container">
+      <div class="section-head">
+        <h2>OUR COLLABORATIONS</h2>
+        <span class="kicker">Trusted Partners</span>
+      </div>
+      <div class="collaborations-carousel" aria-roledescription="carousel" aria-label="Partner Collaborations">
+        <div class="collaborations-track" id="collaborationsTrack">
+          <div class="collaborations-slide">
+            <img src="partner image 1.png" alt="Partner 1">
+          </div>
+          <div class="collaborations-slide">
+            <img src="partner image 2.png" alt="Partner 2">
+          </div>
+          <div class="collaborations-slide">
+            <img src="partner image 3.png" alt="Partner 3">
+          </div>
+          <div class="collaborations-slide">
+            <img src="partner image 4.png" alt="Partner 4">
+          </div>
+          <div class="collaborations-slide">
+            <img src="partner image 5.png" alt="Partner 5">
+          </div>
+          <div class="collaborations-slide">
+            <img src="partner image 6.png" alt="Partner 6">
+          </div>
+          <div class="collaborations-slide">
+            <img src="partner image 7.png" alt="Partner 7">
+          </div>
+        </div>
+        <div class="collaborations-controls">
+          <button class="collaborations-btn" id="collaborationsPrev" aria-label="Previous partner">‹</button>
+          <button class="collaborations-btn" id="collaborationsNext" aria-label="Next partner">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="container">
+      <div class="section-head">
+        <h2>Our Achievements</h2>
+        <span class="kicker">Trusted by thousands</span>
+      </div>
+      <div class="stats-section">
+        <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="30">0</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="2">0</div>
+          <div class="stat-label">Local Branches in city London</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="54" data-suffix="K">0</div>
+          <div class="stat-label">Happy Customer with our work</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="25">0</div>
+          <div class="stat-label">Best team with dedicate Employee</div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="container">
+      <div class="section-head">
+        <h2>Questions, answered</h2>
+        <span class="kicker">Process & logistics</span>
+      </div>
+      <details>
+        <summary>Do you cover my area?</summary>
+        <p>We serve most of the UK. Send your postcode in the form below and we’ll confirm availability and lead times.</p>
+      </details>
+      <details>
+        <summary>How long does a typical install take?</summary>
+        <p>Most kitchens complete in 10–15 working days depending on scope. Wardrobes usually fit within 2–3 days.</p>
+      </details>
+      <details>
+        <summary>What warranties do you provide?</summary>
+        <p>5‑year workmanship warranty as standard. Manufacturer warranties apply to hardware and appliances.</p>
+      </details>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="container">
+      <div class="section-head">
+        <h2>Book a free consultation</h2>
+        <span class="kicker">Tell us about your space</span>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Jane Smith" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="07…" />
+          </div>
+          <div>
+            <label for="postcode">Postcode</label>
+            <input id="postcode" name="postcode" placeholder="E1 6AN" required />
+          </div>
+        </div>
+        <label for="service">I’m interested in</label>
+        <select id="service" name="service">
+          <option>Kitchen modules</option>
+          <option>Fitted wardrobes</option>
+          <option>Both</option>
+        </select>
+        <label for="message">Project notes</label>
+        <textarea id="message" name="message" rows="5" placeholder="Room sizes, style preferences, timelines…"></textarea>
+        <div style="display:flex; gap:.8rem; align-items:center; flex-wrap:wrap">
+          <button class="btn primary" type="submit">Send enquiry</button>
+          <button class="btn" type="button" id="copyEmail">Copy email</button>
+          <span class="kicker">or email <a href="mailto:info@PYTHONKITCHEN.CO.UK">info@PYTHONKITCHEN.CO.UK</a></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap">
+      <div>© <span id="year"></span> Python Kitchen Ltd · All rights reserved</div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/17GL1smiJN/?mibextid=wwXIfr" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/pythonkitchenltd?igsh=c3BsamlhaHI3YjJr&utm_source=qr" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@pythonkitchen?_r=1&_t=ZN-917j1NHcxIE" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/python-kitchen-ltd-singh-3397b9360" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+      </div>
+      <div>Company based in the UK • Privacy • Terms</div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/447951399280?text=Hi!%20I'm%20interested%20in%20your%20kitchen%20and%20wardrobe%20services.%20Could%20you%20please%20help%20me?" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Contact us on WhatsApp">
+    📱
+  </a>
+
+  <!-- ===== INTERACTIVITY (JavaScript) ===== -->
+  <script>
+    // Page fade-in animation control
+    (function(){
+      let animationStarted = false;
+      
+      function startFadeIn() {
+        if (animationStarted) return;
+        animationStarted = true;
+        
+        // Add the loaded class to trigger animations
+        document.body.classList.add('loaded');
+        
+        // Add individual animation delays for better visual effect
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section, index) => {
+          section.style.transitionDelay = `${0.1 + (index * 0.1)}s`;
+        });
+      }
+      
+      // Start animation when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(startFadeIn, 150);
+        });
+      } else {
+        // DOM already loaded
+        setTimeout(startFadeIn, 150);
+      }
+      
+      // Fallback: start animation after a maximum delay
+      setTimeout(function() {
+        if (!animationStarted) {
+          startFadeIn();
+        }
+      }, 1000);
+    })();
+
+    // Navbar scroll behavior - show on scroll up, hide on scroll down
+    (function(){
+      let lastScrollTop = 0;
+      const header = document.querySelector('header');
+      const threshold = 100;
+      
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop <= 10) {
+          // At the top - always show navbar
+          header.classList.remove('nav-hidden');
+          lastScrollTop = scrollTop;
+        } else if (scrollTop > threshold) {
+          if (scrollTop > lastScrollTop) {
+            // Scrolling down - hide navbar
+            header.classList.add('nav-hidden');
+          } else {
+            // Scrolling up - show navbar
+            header.classList.remove('nav-hidden');
+          }
+          lastScrollTop = scrollTop;
+        }
+      });
+    })();
+
+    // Smooth scroll for in‑page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Video gallery functionality
+    (function(){
+      const videoContainers = document.querySelectorAll('.video-container');
+      
+      videoContainers.forEach(container => {
+        const video = container.querySelector('video');
+        const playButton = container.querySelector('.play-button');
+        const overlay = container.querySelector('.video-overlay');
+        
+        // Play button click handler
+        playButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+          video.play();
+          overlay.style.opacity = '0';
+        });
+        
+        // Show overlay when video is paused or ended
+        video.addEventListener('pause', () => {
+          overlay.style.opacity = '1';
+        });
+        
+        video.addEventListener('ended', () => {
+          overlay.style.opacity = '1';
+        });
+        
+        // Hide overlay when video is playing
+        video.addEventListener('play', () => {
+          overlay.style.opacity = '0';
+        });
+        
+        // Allow video controls to work normally
+        video.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+        
+        // Hide overlay when user interacts with video controls
+        video.addEventListener('timeupdate', () => {
+          if (!video.paused) {
+            overlay.style.opacity = '0';
+          }
+        });
+      });
+    })();
+
+    // OUR WORK - Video carousel controls
+    (function(){
+      const track = document.getElementById('videoTrack');
+      const prev = document.getElementById('videoPrev');
+      const next = document.getElementById('videoNext');
+      if(!track || !prev || !next) return;
+
+      let index = 0;
+
+      function slidesPerView(){
+        const w = window.innerWidth;
+        if(w <= 640) return 1;
+        if(w <= 960) return 2;
+        return 3;
+      }
+
+      function maxIndex(){
+        const total = track.children.length;
+        const spv = slidesPerView();
+        return Math.max(0, Math.ceil(total - spv));
+      }
+
+      function update(){
+        const spv = slidesPerView();
+        const gapPx = 16; // 1rem default gap
+        const containerWidth = track.parentElement.clientWidth;
+        const slideWidth = (containerWidth - gapPx * (spv - 1)) / spv;
+        // translate by slide width + gap each step
+        const translate = -(index * (slideWidth + gapPx));
+        track.style.transform = `translateX(${translate}px)`;
+        prev.disabled = index === 0;
+        next.disabled = index >= maxIndex();
+      }
+
+      function goNext(){ if(index < maxIndex()){ index++; update(); } }
+      function goPrev(){ if(index > 0){ index--; update(); } }
+
+      next.addEventListener('click', goNext);
+      prev.addEventListener('click', goPrev);
+      window.addEventListener('resize', ()=>{ index = 0; update(); });
+
+      // init
+      update();
+    })();
+
+    // COLLABORATIONS CAROUSEL - Continuous infinite scroll
+    (function(){
+      const track = document.getElementById('collaborationsTrack');
+      const prev = document.getElementById('collaborationsPrev');
+      const next = document.getElementById('collaborationsNext');
+      if(!track || !prev || !next) return;
+
+      const TOTAL_SLIDES = 7; // Original number of slides
+      let autoplayInterval = null;
+      const autoplayDelay = 2000; // 2 seconds for smooth continuous scroll
+      let scrollPosition = 0;
+      let isTransitioning = false;
+      let animationFrame = null;
+
+      // Clone all slides multiple times for seamless infinite scroll
+      function cloneSlides() {
+        const slides = track.children;
+        const slidesArray = Array.from(slides);
+        
+        // Clone the entire set 3 times to ensure smooth infinite scroll
+        for (let i = 0; i < 2; i++) {
+          slidesArray.forEach(slide => {
+            const clone = slide.cloneNode(true);
+            track.appendChild(clone);
+          });
+        }
+      }
+      cloneSlides();
+
+      function getSlideWidth() {
+        const slides = track.children;
+        if (slides.length === 0) return 0;
+        return slides[0].offsetWidth;
+      }
+
+      function getGap() {
+        const computedStyle = window.getComputedStyle(track);
+        return parseFloat(computedStyle.gap) || 32; // fallback to 32px (2rem)
+      }
+
+      function getSetWidth() {
+        const slideWidth = getSlideWidth();
+        const gap = getGap();
+        return TOTAL_SLIDES * (slideWidth + gap);
+      }
+
+      function updatePosition(instant = false) {
+        const setWidth = getSetWidth();
+        
+        // Wrap scroll position to stay within one set
+        while (scrollPosition >= setWidth) {
+          scrollPosition -= setWidth;
+        }
+        while (scrollPosition < 0) {
+          scrollPosition += setWidth;
+        }
+        
+        track.style.transition = instant ? 'none' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        track.style.transform = `translateX(-${scrollPosition}px)`;
+      }
+
+      function scrollNext() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        const slideWidth = getSlideWidth();
+        const gap = getGap();
+        const step = slideWidth + gap;
+        
+        scrollPosition += step;
+        updatePosition();
+        
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 600);
+      }
+
+      function scrollPrev() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        const slideWidth = getSlideWidth();
+        const gap = getGap();
+        const step = slideWidth + gap;
+        
+        scrollPosition -= step;
+        updatePosition();
+        
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 600);
+      }
+
+      function stopAutoplay() {
+        if (autoplayInterval) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = null;
+        }
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+          animationFrame = null;
+        }
+      }
+
+      let pauseTimeout = null;
+
+      function startAutoplay() {
+        stopAutoplay();
+        
+        // Clear any existing pause timeout
+        if (pauseTimeout) {
+          clearTimeout(pauseTimeout);
+          pauseTimeout = null;
+        }
+        
+        // Continuous smooth scroll animation
+        function animate() {
+          const slideWidth = getSlideWidth();
+          const gap = getGap();
+          
+          scrollPosition += 0.3; // Slower scroll speed for smoother, more relaxed viewing
+          
+          const setWidth = getSetWidth();
+          if (scrollPosition >= setWidth) {
+            scrollPosition = scrollPosition % setWidth;
+          }
+          
+          track.style.transition = 'none';
+          track.style.transform = `translateX(-${scrollPosition}px)`;
+          
+          animationFrame = requestAnimationFrame(animate);
+        }
+        
+        animate();
+      }
+
+      function pauseAutoplayTemporarily(duration = 3000) {
+        stopAutoplay();
+        
+        // Resume autoplay after specified duration
+        if (pauseTimeout) {
+          clearTimeout(pauseTimeout);
+        }
+        pauseTimeout = setTimeout(() => {
+          startAutoplay();
+          pauseTimeout = null;
+        }, duration);
+      }
+
+      // Event listeners
+      next.addEventListener('click', () => {
+        pauseAutoplayTemporarily(3000); // Pause for 3 seconds when button is clicked
+        scrollNext();
+      });
+      
+      prev.addEventListener('click', () => {
+        pauseAutoplayTemporarily(3000); // Pause for 3 seconds when button is clicked
+        scrollPrev();
+      });
+
+      // Keep autoplay running on hover (don't pause)
+
+      // Wait for images to load, then initialize
+      function init() {
+        // Start with smooth continuous scroll
+        startAutoplay();
+      }
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          setTimeout(init, 300);
+        });
+      } else {
+        setTimeout(init, 300);
+      }
+
+      // Handle window resize
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          const setWidth = getSetWidth();
+          scrollPosition = scrollPosition % setWidth;
+          updatePosition(true);
+        }, 100);
+      });
+    })();
+
+    // Portfolio (demo data)
+      const projects = [
+      {t:'Bespoke & Designer Kitchen', c:'kitchen'},
+      {t:'Contemporary Kitchens', c:'kitchen'},
+      {t:'Modern kitchens', c:'kitchen'},
+      {t:'Bespoke Bedroom', c:'wardrobe'},
+      {t:'Luxury living room', c:'wardrobe'},
+      {t:'Home office design', c:'utility'},
+      {t:'In-Home Temple design', c:'kitchen'},
+      {t:'Understairs and Loft Storage Solutions', c:'wardrobe'}
+    ];
+    const grid = document.getElementById('portfolioGrid');
+    function render(filter='all'){
+      grid.innerHTML = '';
+      projects.filter(p=> filter==='all' || p.c===filter).forEach((p,i)=>{
+        const card = document.createElement('article');
+        card.className = 'card';
+        const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop stop-color='%23faf9f6'/><stop offset='1' stop-color='%23c8ad7f'/></linearGradient></defs><rect width='400' height='300' fill='url(%23g)'/><g opacity='.18' fill='%230d1b2a'><rect x='30' y='40' width='340' height='200' rx='14'/><rect x='50' y='70' width='100' height='12' rx='6'/><rect x='50' y='100' width='140' height='12' rx='6'/></g></svg>`);
+        // Special handling for projects with banner images
+        if(p.t === 'Bespoke & Designer Kitchen'){
+          card.innerHTML = `
+            <div class='thumb'>
+              <img src="banner bespoke and designer kitchen.png" alt="Bespoke & Designer Kitchen banner" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class='meta'>
+              <div>
+                <h3>${p.t}</h3>
+                <p class='sub'>Bespoke design. Durable finishes. Precision fit.</p>
+              </div>
+            </div>`;
+        } else if(p.t === 'Contemporary Kitchens'){
+          card.innerHTML = `
+            <div class='thumb'>
+              <img src="banner contemporary kitchens.png" alt="Contemporary Kitchens banner" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class='meta'>
+              <div>
+                <h3>${p.t}</h3>
+                <p class='sub'>Contemporary design. Durable finishes. Precision fit.</p>
+              </div>
+            </div>`;
+        } else if(p.t === 'Modern kitchens'){
+          card.innerHTML = `
+            <div class='thumb'>
+              <img src="banner modern kitchen.png" alt="Modern Kitchens banner" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class='meta'>
+              <div>
+                <h3>${p.t}</h3>
+                <p class='sub'>Modern design. Durable finishes. Precision fit.</p>
+              </div>
+            </div>`;
+        } else if(p.t === 'Bespoke Bedroom'){
+          card.innerHTML = `
+            <div class='thumb'>
+              <img src="banner bespoke bedroom.png" alt="Bespoke Bedroom banner" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class='meta'>
+              <div>
+                <h3>${p.t}</h3>
+                <p class='sub'>Bespoke design. Durable finishes. Precision fit.</p>
+              </div>
+            </div>`;
+        } else if(p.t === 'Luxury living room'){
+          card.innerHTML = `
+            <div class='thumb'>
+              <img src="banner luxury living room.png" alt="Luxury Living Room banner" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class='meta'>
+              <div>
+                <h3>${p.t}</h3>
+                <p class='sub'>Luxury design. Durable finishes. Precision fit.</p>
+              </div>
+            </div>`;
+        } else if(p.t === 'Home office design'){
+          card.innerHTML = `
+            <div class='thumb'>
+              <img src="banner home office.png" alt="Home Office Design banner" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class='meta'>
+              <div>
+                <h3>${p.t}</h3>
+                <p class='sub'>Office design. Durable finishes. Precision fit.</p>
+              </div>
+            </div>`;
+        } else if(p.t === 'Understairs and Loft Storage Solutions'){
+          card.innerHTML = `
+            <div class='thumb'>
+              <img src="compressed_understairs_banner.jpg" alt="Understairs and Loft Storage Solutions banner" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class='meta'>
+              <div>
+                <h3>${p.t}</h3>
+                <p class='sub'>Bespoke design. Durable finishes. Precision fit.</p>
+              </div>
+            </div>`;
+        } else if(p.t === 'In-Home Temple design'){
+          card.innerHTML = `
+            <div class='thumb'>
+              <img src="banner of in home temple.png" alt="In-Home Temple Design banner" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class='meta'>
+              <div>
+                <h3>${p.t}</h3>
+                <p class='sub'>Temple design. Durable finishes. Precision fit.</p>
+              </div>
+            </div>`;
+        } else {
+          card.innerHTML = `
+            <div class='thumb'>
+              <span>${p.c}</span>
+            </div>
+            <div class='meta'>
+              <div>
+                <h3>${p.t}</h3>
+                <p class='sub'>Bespoke ${p.c}. Durable finishes. Precision fit.</p>
+              </div>
+            </div>`;
+        }
+        // Link the first and second portfolio items to dedicated pages
+        if(i === 0){
+          card.style.cursor = 'pointer';
+          card.setAttribute('role','link');
+          card.setAttribute('aria-label','Open Bespoke & Designer Kitchen');
+          card.addEventListener('click', ()=>{ window.location.href = 'bespoke-designer-kitchen.html'; });
+        }
+        if(i === 1){
+          card.style.cursor = 'pointer';
+          card.setAttribute('role','link');
+          card.setAttribute('aria-label','Open Contemporary Kitchens');
+          card.addEventListener('click', ()=>{ window.location.href = 'contemporary-kitchens.html'; });
+        }
+        if(i === 2){
+          card.style.cursor = 'pointer';
+          card.setAttribute('role','link');
+          card.setAttribute('aria-label','Open Modern Kitchens');
+          card.addEventListener('click', ()=>{ window.location.href = 'modern-kitchens.html'; });
+        }
+        // Link Bespoke Bedroom card by title
+        if(p.t === 'Bespoke Bedroom'){
+          card.style.cursor = 'pointer';
+          card.setAttribute('role','link');
+          card.setAttribute('aria-label','Open Bespoke Bedroom');
+          card.addEventListener('click', ()=>{ window.location.href = 'bespoke-bedroom.html'; });
+        }
+        // Link Luxury living room card by title
+        if(p.t === 'Luxury living room'){
+          card.style.cursor = 'pointer';
+          card.setAttribute('role','link');
+          card.setAttribute('aria-label','Open Luxury living room');
+          card.addEventListener('click', ()=>{ window.location.href = 'luxury-living-room.html'; });
+        }
+        // Link Home office design card by title
+        if(p.t === 'Home office design'){
+          card.style.cursor = 'pointer';
+          card.setAttribute('role','link');
+          card.setAttribute('aria-label','Open Home office design');
+          card.addEventListener('click', ()=>{ window.location.href = 'home-office-design.html'; });
+        }
+        // Link In-Home Temple design card by title
+        if(p.t === 'In-Home Temple design'){
+          card.style.cursor = 'pointer';
+          card.setAttribute('role','link');
+          card.setAttribute('aria-label','Open In-Home Temple design');
+          card.addEventListener('click', ()=>{ window.location.href = 'in-home-temple-design.html'; });
+        }
+        // Link Understairs and Loft Storage Solutions card by title
+        if(p.t === 'Understairs and Loft Storage Solutions'){
+          card.style.cursor = 'pointer';
+          card.setAttribute('role','link');
+          card.setAttribute('aria-label','Open Understairs and Loft Storage Solutions');
+          card.addEventListener('click', ()=>{ window.location.href = 'understairs and loft storage solutions.html'; });
+        }
+        grid.appendChild(card);
+      });
+    }
+    render();
+    document.querySelectorAll('.filterbar .btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.filterbar .btn').forEach(b=> b.removeAttribute('aria-selected'));
+        btn.setAttribute('aria-selected','true');
+        render(btn.dataset.filter);
+      });
+    });
+
+
+    // Google Reviews carousel (fixed 6 reviews, no auto updates)
+    (function(){
+      const reviews = [
+  {
+    name: "John Telespher",
+    location: "",
+    rating: 5,
+    text: "We’re absolutely thrilled with our new kitchen from Python Kitchens! Ravi was incredibly helpful from start to finish, listened to our requirements and suggested ideal solutions. Highly recommend.",
+    date: "8 months ago",
+    avatar: "JT"
+  },
+  {
+    name: "Davinder Singh",
+    location: "",
+    rating: 5,
+    text: "Ravi & team meticulously designed my kitchen, considering every practical need and suggesting ideas we’d never have thought of. Perfect custom kitchen with beautiful materials.",
+    date: "6 months ago",
+    avatar: "DS"
+  },
+  {
+    name: "Sunil Kumar",
+    location: "",
+    rating: 5,
+    text: "One of the best interior designers in town. They grasp client ideas and work with them instead of pushing their own. Knowledgeable, friendly, punctual and helpful.",
+    date: "5 months ago",
+    avatar: "SK"
+  },
+  {
+    name: "Riya Grover",
+    location: "",
+    rating: 5,
+    text: "From initial design to final setup, the service was amazing. Professional team and great attention to detail. Couldn’t be happier.",
+    date: "6 months ago",
+    avatar: "RG"
+  },
+  {
+    name: "Sanjeev Vig",
+    location: "",
+    rating: 5,
+    text: "Ravi understands customer requirements and provides excellent solutions. Goes out of his way to ensure satisfaction and strong after-sales service.",
+    date: "2 years ago",
+    avatar: "SV"
+  },
+  {
+    name: "Dilip Dattani",
+    location: "",
+    rating: 5,
+    text: "Fabulous job. Service and care feel homely with careful attention to everything.",
+    date: "7 months ago",
+    avatar: "DD"
+  },
+  {
+    name: "Prabhdeep Singh",
+    location: "",
+    rating: 5,
+    text: "Really pleased with services by Ravi and Naiya. High-quality kitchen, done to a high standard and on time. Would definitely recommend.",
+    date: "6 months ago",
+    avatar: "PS"
+  },
+  {
+    name: "Bijal",
+    location: "",
+    rating: 5,
+    text: "Very happy with our new wardrobes—great quality, punctual, and completed within agreed time. Mr Ravi was very helpful and supportive.",
+    date: "8 months ago",
+    avatar: "B"
+  },
+  {
+    name: "Kwame Sousseing",
+    location: "",
+    rating: 5,
+    text: "Absolutely thrilled with my new kitchen. Ravi was professional, friendly, and truly listened. Quality and attention to detail are top-notch.",
+    date: "6 months ago",
+    avatar: "KS"
+  },
+  {
+    name: "Anatolie Jentimir",
+    location: "",
+    rating: 5,
+    text: "In awe of my experience at Python Kitchen—from impeccable wardrobes to a sleek, modern kitchen.",
+    date: "6 months ago",
+    avatar: "AJ"
+  },
+  {
+    name: "Sandip Parmar",
+    location: "",
+    rating: 5,
+    text: "Excellent service for our wardrobes. Very friendly staff and Ravi took great care while working in our house. Highly recommend.",
+    date: "5 months ago",
+    avatar: "SP"
+  },
+  {
+    name: "Prabhdeep Bhatti",
+    location: "",
+    rating: 5,
+    text: "Great experience—Ravi was super helpful and made sure everything was perfect. My kitchen looks amazing.",
+    date: "6 months ago",
+    avatar: "PB"
+  },
+  {
+    name: "Sacha Roberts",
+    location: "",
+    rating: 5,
+    text: "Absolutely love my new wardrobes—three bedrooms done and we’re so happy. Amazing company.",
+    date: "5 months ago",
+    avatar: "SR"
+  },
+  {
+    name: "Amrita Luther",
+    location: "",
+    rating: 5,
+    text: "Exceptional client service. Felt comfortable and valued. Everything ran efficiently—great experience.",
+    date: "5 months ago",
+    avatar: "AL"
+  },
+  {
+    name: "Paramjeet Kaur",
+    location: "",
+    rating: 5,
+    text: "Kitchen renovated professionally from first appointment to completion. Ravi designed around my needs with helpful suggestions. Definitely recommend.",
+    date: "7 months ago",
+    avatar: "PK"
+  },
+  {
+    name: "Priyapreet Bhatti",
+    location: "",
+    rating: 5,
+    text: "Very professional with quick turnover. Incredible and attentive staff. Beautiful kitchen and master bedroom wardrobe.",
+    date: "6 months ago",
+    avatar: "PB"
+  },
+  {
+    name: "Prabhjeet Singh",
+    location: "",
+    rating: 5,
+    text: "Kitchen/bedroom renovation—professional, expert team with genuine commitment to customer satisfaction.",
+    date: "6 months ago",
+    avatar: "PS"
+  },
+  {
+    name: "Shivjeet Singh",
+    location: "",
+    rating: 5,
+    text: "One of my best experiences. Great quality and design options. Special thanks to Mr Ravi for excellent guidance and service.",
+    date: "8 months ago",
+    avatar: "SS"
+  },
+  {
+    name: "Neema Bansal",
+    location: "",
+    rating: 5,
+    text: "Ravi and Naiya did a very good job for my house. Recommend for kitchen & bedroom—both did a fabulous job.",
+    date: "6 months ago",
+    avatar: "NB"
+  },
+  {
+    name: "Kamal Devgun",
+    location: "",
+    rating: 5,
+    text: "Amazing, helpful, professional team. Installed an excellent kitchen and went above and beyond. Ravi ensured highest quality.",
+    date: "9 months ago",
+    avatar: "KD"
+  },
+  {
+    name: "Nupinderjeet Singh",
+    location: "",
+    rating: 5,
+    text: "10/10 experience. Great customer service and thanks to Mr Ravi for the right guidance on kitchen fitouts.",
+    date: "8 months ago",
+    avatar: "NS"
+  },
+  {
+    name: "Sumati Bhandari",
+    location: "",
+    rating: 5,
+    text: "Good value and service. Delivered as promised to excellent standard. Minor issue was fixed promptly. Highly recommended.",
+    date: "7 months ago",
+    avatar: "SB"
+  },
+  {
+    name: "Jagdeep Singh",
+    location: "",
+    rating: 5,
+    text: "Excellent service and tremendous quality. They help you select the best design to enhance your home.",
+    date: "Edited 8 months ago",
+    avatar: "JS"
+  },
+  {
+    name: "Dimpi Singh",
+    location: "",
+    rating: 5,
+    text: "Ravi Paji and team performed very well, maintaining good quality. Thank you!",
+    date: "5 months ago",
+    avatar: "DS"
+  },
+  {
+    name: "Paul Ventour",
+    location: "",
+    rating: 5,
+    text: "Ravi answered all my fitted-wardrobe questions. They look great. Professional and friendly service. Highly recommended.",
+    date: "11 months ago",
+    avatar: "PV"
+  },
+  {
+    name: "Nav Kaur",
+    location: "",
+    rating: 5,
+    text: "Highly recommended. Amazing, quick and reliable service.",
+    date: "6 months ago",
+    avatar: "NK"
+  },
+  {
+    name: "Anish M",
+    location: "",
+    rating: 5,
+    text: "Excellent service, delivered on time with friendly staff. Highly recommended.",
+    date: "5 months ago",
+    avatar: "AM"
+  },
+  {
+    name: "Ali Khan",
+    location: "",
+    rating: 5,
+    text: "Kitchen designed by Naiya and Ravi was exactly what we wanted. Stood by us and helped tackle issues. Really impressed—highly recommend.",
+    date: "2 years ago",
+    avatar: "AK"
+  },
+  {
+    name: "Rifaqat Shah",
+    location: "",
+    rating: 5,
+    text: "Great product and best customer service. Everything fitted professionally. Will recommend everyone.",
+    date: "11 months ago",
+    avatar: "RS"
+  },
+  {
+    name: "Vikramjit Singh",
+    location: "",
+    rating: 5,
+    text: "Amazing concept and world-class kitchen. Love it!",
+    date: "9 months ago",
+    avatar: "VS"
+  },
+  {
+    name: "Pankaj Sharma",
+    location: "",
+    rating: 5,
+    text: "Excellent, straightforward and honest service. Happy to recommend.",
+    date: "6 months ago",
+    avatar: "PS"
+  },
+  {
+    name: "Bashir Ahmad",
+    location: "",
+    rating: 5,
+    text: "Lovely job—really happy with materials and products.",
+    date: "5 months ago",
+    avatar: "BA"
+  },
+  {
+    name: "Kam Pankhania",
+    location: "",
+    rating: 5,
+    text: "Best after-service and care. Long after installation they still put things right immediately.",
+    date: "2 years ago",
+    avatar: "KP"
+  },
+  {
+    name: "C Praneetha",
+    location: "",
+    rating: 5,
+    text: "Functional and beautiful—expertise evident in every detail.",
+    date: "a year ago",
+    avatar: "CP"
+  },
+  {
+    name: "Priya Patel",
+    location: "",
+    rating: 5,
+    text: "Parents had their kitchen fitted and are very pleased with the quality. Would recommend.",
+    date: "11 months ago",
+    avatar: "PP"
+  },
+  {
+    name: "Anneka",
+    location: "",
+    rating: 5,
+    text: "A range of modern & custom fittings. Great service!",
+    date: "5 months ago",
+    avatar: "A"
+  },
+  {
+    name: "Ritika Bedi",
+    location: "",
+    rating: 5,
+    text: "Heartening overall experience. Services were very satisfactory. Would recommend visiting the store.",
+    date: "a year ago",
+    avatar: "RB"
+  },
+  {
+    name: "Roshni Patel",
+    location: "",
+    rating: 5,
+    text: "Great service—helpful and professional staff. Used them a second time—highly recommend.",
+    date: "a year ago",
+    avatar: "RP"
+  },
+  {
+    name: "Manny Singh",
+    location: "",
+    rating: 5,
+    text: "Got a bookcase done—measurement, design, and materials handled by them. On time and in full. Good value.",
+    date: "2 years ago",
+    avatar: "MS"
+  },
+  {
+    name: "Tashneet Kaur",
+    location: "",
+    rating: 5,
+    text: "Very professional and on time—my kitchen was delivered as promised.",
+    date: "Edited 5 months ago",
+    avatar: "TK"
+  },
+  {
+    name: "Sonal Maheshwari",
+    location: "",
+    rating: 5,
+    text: "Owner is customer-friendly and highly recommended for quality work at reasonable prices.",
+    date: "a year ago",
+    avatar: "SM"
+  },
+  {
+    name: "Lucian Marius Matei",
+    location: "",
+    rating: 5,
+    text: "Dedicated customer service and quality products/work. Will use again for next projects.",
+    date: "a year ago",
+    avatar: "LMM"
+  },
+  {
+    name: "Aanya Singh",
+    location: "",
+    rating: 5,
+    text: "Great experience—finished product was stylish and high quality. Kitchen turned out amazing.",
+    date: "2 years ago",
+    avatar: "AS"
+  },
+  {
+    name: "M Singh",
+    location: "",
+    rating: 5,
+    text: "Excellent, efficient, friendly company and service. Good quality—thank you.",
+    date: "11 months ago",
+    avatar: "MS"
+  },
+  {
+    name: "BullZi Org",
+    location: "",
+    rating: 5,
+    text: "Excellent work done for us—we always go with Python Kitchens!",
+    date: "a year ago",
+    avatar: "BO"
+  },
+  {
+    name: "Ashmeet Singh",
+    location: "",
+    rating: 5,
+    text: "Very helpful—work done as expected. Surely recommended for future projects.",
+    date: "2 years ago",
+    avatar: "AS"
+  },
+  {
+    name: "Manjari Trivedi",
+    location: "",
+    rating: 5,
+    text: "Fantastic service. Installation team very professional and work done on time.",
+    date: "2 years ago",
+    avatar: "MT"
+  },
+  {
+    name: "Nadeem Khan",
+    location: "",
+    rating: 5,
+    text: "Very helpful and supportive from start to end. Great product range to select from.",
+    date: "2 years ago",
+    avatar: "NK"
+  },
+  {
+    name: "Amritpal Singh",
+    location: "",
+    rating: 5,
+    text: "Excellent, amazing service at a good price. Great customer handling.",
+    date: "a year ago",
+    avatar: "AS"
+  },
+  {
+    name: "Stella Thomas",
+    location: "",
+    rating: 5,
+    text: "Good one.",
+    date: "5 months ago",
+    avatar: "ST"
+  },
+  {
+    name: "Rimpy Sohal",
+    location: "",
+    rating: 5,
+    text: "Highly recommend—great quality, customer service, and competitive pricing.",
+    date: "2 years ago",
+    avatar: "RS"
+  },
+  {
+    name: "Asif Hussain",
+    location: "",
+    rating: 5,
+    text: "High quality service and good value. Expert fitting and bespoke maintenance advice.",
+    date: "2 years ago",
+    avatar: "AH"
+  },
+  {
+    name: "Krishna Dahal",
+    location: "",
+    rating: 5,
+    text: "Best professional & reliable kitchen. Love the quality and teamwork!",
+    date: "a year ago",
+    avatar: "KD"
+  },
+  {
+    name: "Prabhjit Kaur",
+    location: "",
+    rating: 5,
+    text: "Designed by Ravi—the work done was amazing.",
+    date: "2 years ago",
+    avatar: "PK"
+  },
+  {
+    name: "Lovzeen Brar",
+    location: "",
+    rating: 5,
+    text: "Highly recommend—very helpful, efficient, and economical.",
+    date: "11 months ago",
+    avatar: "LB"
+  },
+  {
+    name: "Tahir Hussain",
+    location: "",
+    rating: 5,
+    text: "Lovely customer service and good quality.",
+    date: "9 months ago",
+    avatar: "TH"
+  },
+  {
+    name: "Hafiz Ullah",
+    location: "",
+    rating: 5,
+    text: "Good quality materials, reasonable price, responsible and prompt action; professional service.",
+    date: "3 years ago",
+    avatar: "HU"
+  },
+  {
+    name: "Sarfraz Usman",
+    location: "",
+    rating: 5,
+    text: "Excellent work and custom-made solutions.",
+    date: "a year ago",
+    avatar: "SU"
+  },
+  {
+    name: "QUALITY MARBLE GRANITE LTD",
+    location: "",
+    rating: 5,
+    text: "Professional team with good quality and service.",
+    date: "Edited 2 years ago",
+    avatar: "QM"
+  },
+  {
+    name: "milad makar",
+    location: "",
+    rating: 5,
+    text: "Very satisfied with quality and cost.",
+    date: "2 years ago",
+    avatar: "MM"
+  },
+  {
+    name: "Abdul Sardary",
+    location: "",
+    rating: 5,
+    text: "Good service.",
+    date: "10 months ago",
+    avatar: "AS"
+  },
+  {
+    name: "Khalid R",
+    location: "",
+    rating: 5,
+    text: "They are very good. Responsive, punctual, quality and professional.",
+    date: "2 years ago",
+    avatar: "KR"
+  },
+  {
+    name: "Khushdeep Chhina",
+    location: "",
+    rating: 5,
+    text: "Positive experience—quality work.",
+    date: "2 years ago",
+    avatar: "KC"
+  },
+  {
+    name: "Brijesh Puri",
+    location: "",
+    rating: 5,
+    text: "Positive: Quality.",
+    date: "2 years ago",
+    avatar: "BP"
+  },
+  {
+    name: "Fauzia Iqbal",
+    location: "",
+    rating: 5,
+    text: "Positive: Responsiveness, punctuality, quality, professionalism, value.",
+    date: "2 years ago",
+    avatar: "FI"
+  },
+  {
+    name: "Avon Gonsalves",
+    location: "",
+    rating: 5,
+    text: "Positive: Quality and value.",
+    date: "2 years ago",
+    avatar: "AG"
+  },
+  {
+    name: "Ariba Khan",
+    location: "",
+    rating: 5,
+    text: "Left a 5-star rating.",
+    date: "6 months ago",
+    avatar: "AK"
+  },
+  {
+    name: "jprpropertyservices",
+    location: "",
+    rating: 5,
+    text: "Left a 5-star rating.",
+    date: "a year ago",
+    avatar: "J"
+  },
+  {
+    name: "Jasbir Jassal",
+    location: "",
+    rating: 5,
+    text: "Left a 5-star rating.",
+    date: "a year ago",
+    avatar: "JJ"
+  }
+];
+
+
+
+      const container = document.getElementById('reviewsContainer');
+      const dotsContainer = document.getElementById('carouselDots');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      
+      let currentIndex = 0;
+
+      function renderStars(rating) {
+        return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+      }
+
+      function renderReviews() {
+        container.innerHTML = '';
+        dotsContainer.innerHTML = '';
+        const allReviews = reviews.slice(0, 15); // Show first 15 reviews
+        
+        allReviews.forEach((review) => {
+          // Create review card
+          const card = document.createElement('div');
+          card.className = 'review-card';
+          card.innerHTML = `
+            <div class="review-header">
+              <div class="reviewer-avatar">${review.avatar}</div>
+              <div class="reviewer-info">
+                <h4>${review.name}</h4>
+                <div class="stars">${renderStars(review.rating)}</div>
+              </div>
+            </div>
+            <div class="review-text">${review.text}</div>
+            <div class="review-date">${review.date}</div>
+            <div class="google-badge">
+              <span>★</span>
+              <span>Google</span>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+
+        // Build dots per slide (not per review)
+        const totalSlides = Math.ceil(allReviews.length / getCardsPerView());
+        for(let i=0;i<totalSlides;i++){
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot';
+          dot.setAttribute('aria-label', `Go to slide ${i+1}`);
+          dot.addEventListener('click', () => goToSlide(i));
+          dotsContainer.appendChild(dot);
+        }
+
+        updateCarousel();
+      }
+
+      function updateCarousel() {
+        const cardsPerView = getCardsPerView();
+        const slideShiftPercent = 100; // because each slide shift equals one full container width
+        const translateX = -(currentIndex * slideShiftPercent);
+        container.style.transform = `translateX(${translateX}%)`;
+        
+        // Update dots
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+
+        // Update button states
+        const totalSlides = Math.ceil(15 / cardsPerView);
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= totalSlides - 1;
+      }
+
+      function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+        // no autoplay
+      }
+
+      function nextSlide() {
+        const totalSlides = Math.ceil(15 / getCardsPerView());
+        if (currentIndex < totalSlides - 1) {
+          currentIndex++;
+          updateCarousel();
+        }
+      }
+
+      function prevSlide() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      }
+
+      function getCardsPerView(){
+        const w = window.innerWidth;
+        if(w <= 520) return 1;
+        if(w <= 768) return 2;
+        if(w <= 1024) return 3;
+        return 4;
+      }
+
+      // Event listeners
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+
+      // Initialize
+      renderReviews();
+      window.addEventListener('resize', ()=>{ currentIndex = 0; renderReviews(); });
+      // No autoplay — user controls only
+    })();
+
+    // Stats counter animation
+    (function(){
+      const statNumbers = document.querySelectorAll('.stat-number');
+      const statsSection = document.querySelector('.stats-grid');
+      let hasAnimated = false;
+
+      function animateCounter(element, target, duration = 2000) {
+        const start = 0;
+        const increment = target / (duration / 16); // 60fps
+        let current = start;
+        const suffix = element.getAttribute('data-suffix') || '';
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          
+          // Display the number with suffix
+          element.textContent = Math.floor(current) + suffix;
+        }, 16);
+      }
+
+      function checkStatsInView() {
+        if (hasAnimated) return;
+        
+        const rect = statsSection.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isInView) {
+          hasAnimated = true;
+          
+          // Animate each counter using data attributes
+          statNumbers.forEach((element) => {
+            const target = parseInt(element.getAttribute('data-target'));
+            animateCounter(element, target, 2000);
+          });
+        }
+      }
+
+      // Check on scroll and initial load
+      window.addEventListener('scroll', checkStatsInView);
+      window.addEventListener('load', checkStatsInView);
+    })();
+
+    // Contact form validation + mailto fallback + copy email
+    const form = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+    function notify(msg){
+      toast.textContent = msg; toast.style.display='block';
+      setTimeout(()=> toast.style.display='none', 2600);
+    }
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      if(!form.checkValidity()){
+        notify('Please complete required fields.');
+        return;
+      }
+      const data = Object.fromEntries(new FormData(form).entries());
+      const subject = encodeURIComponent('New enquiry — Python Kitchen Ltd');
+      const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone||''}\nPostcode: ${data.postcode}\nService: ${data.service}\n\nNotes:\n${data.message||''}`);
+      window.location.href = `mailto:info@PYTHONKITCHEN.CO.UK?subject=${subject}&body=${body}`;
+      notify('Thanks! Your email client should open now.');
+      form.reset();
+    });
+    document.getElementById('copyEmail').addEventListener('click', async ()=>{
+      try{ await navigator.clipboard.writeText('info@PYTHONKITCHEN.CO.UK'); notify('Email copied to clipboard'); }
+      catch{ notify('Copy failed — info@PYTHONKITCHEN.CO.UK'); }
+    });
+  </script>
+  <script>
+    // Mobile/touch dropdown toggles for Services and nested submenus
+    (function(){
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const mq = window.matchMedia('(max-width: 960px)');
+      const rootDropdown = document.querySelector('nav li.dropdown');
+      if(!rootDropdown) return;
+      const rootLink = rootDropdown.querySelector(':scope > a');
+      const submenus = rootDropdown.querySelectorAll('.dropdown-submenu');
+
+      function isMobileLike(){ return isTouch || mq.matches; }
+
+      function closeAll(){
+        rootDropdown.classList.remove('open');
+        submenus.forEach(s=> s.classList.remove('open'));
+        if(rootLink) rootLink.setAttribute('aria-expanded','false');
+        submenus.forEach(s=>{
+          const l = s.querySelector(':scope > a');
+          if(l) l.setAttribute('aria-expanded','false');
+        });
+      }
+
+      if(rootLink){
+        rootLink.addEventListener('click', (e)=>{
+          if(!isMobileLike()) return; // keep hover on desktop
+          e.preventDefault();
+          const nowOpen = !rootDropdown.classList.contains('open');
+          if(!nowOpen) {
+            closeAll();
+            return;
+          }
+          rootDropdown.classList.add('open');
+          rootLink.setAttribute('aria-expanded','true');
+        });
+      }
+
+      submenus.forEach(sm=>{
+        const link = sm.querySelector(':scope > a');
+        if(!link) return;
+        link.addEventListener('click', (e)=>{
+          if(!isMobileLike()) return;
+          e.preventDefault();
+          const wasOpen = sm.classList.contains('open');
+          submenus.forEach(s=> s.classList.remove('open'));
+          submenus.forEach(s=>{
+            const l = s.querySelector(':scope > a');
+            if(l) l.setAttribute('aria-expanded','false');
+          });
+          if(!wasOpen){
+            sm.classList.add('open');
+            link.setAttribute('aria-expanded','true');
+          }
+          // ensure parent is open too
+          rootDropdown.classList.add('open');
+          if(rootLink) rootLink.setAttribute('aria-expanded','true');
+        });
+      });
+
+      document.addEventListener('click', (e)=>{
+        if(!isMobileLike()) return;
+        if(!rootDropdown.contains(e.target)) closeAll();
+      });
+      window.addEventListener('resize', ()=>{ if(!isMobileLike()) closeAll(); });
+    })();
+  </script>
+</body>
+</html>

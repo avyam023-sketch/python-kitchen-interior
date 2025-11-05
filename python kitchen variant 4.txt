@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python Kitchen Ltd · Interior Design · UK</title>
+  <meta name="description" content="Python Kitchen Ltd — Bespoke UK interior design specialising in kitchen modules and fitted wardrobes. Explore our portfolio, estimate costs, and book a consultation."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🍽️</text></svg>">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root{
+      --bg:#0D1B2A;              /* Deep navy */
+      --text:#ffffff;            /* White */
+      --accent:#FAF9F6;          /* Warm ivory (corrected from #FAF9F) */
+      --muted:#1B263B;           /* Slightly lighter navy */
+      --brand:#C8AD7F;           /* Soft brass accent for subtle highlights */
+      --ok:#31c48d;              /* success */
+      --warn:#f59e0b;            /* warning */
+      --err:#ef4444;             /* error */
+      --radius:1.25rem;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+
+    /* ===== GLOBAL RESET ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--text); background:radial-gradient(1200px 600px at 10% -10%, rgba(255,255,255,.06), transparent 60%),
+                        radial-gradient(900px 500px at 100% 10%, rgba(255,255,255,.05), transparent 60%), var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    img{max-width:100%; display:block}
+    .container{width:min(1200px, 92%); margin-inline:auto}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; border-radius:999px; border:1px solid rgba(255,255,255,.18); background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); color:var(--text); text-decoration:none; box-shadow:var(--shadow); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);}
+    .btn:hover{transform:translateY(-1px);}
+    .btn.primary{background:linear-gradient(180deg, rgba(250,249,246,.85), rgba(250,249,246,.65)); color:#111; border-color:rgba(0,0,0,.05)}
+    .chip{display:inline-flex; align-items:center; gap:.5rem; border:1px solid rgba(255,255,255,.18); padding:.3rem .7rem; border-radius:999px; background:rgba(255,255,255,.06)}
+
+    /* ===== NAVBAR ===== */
+    header{position:sticky; top:0; z-index:50; background:rgba(13,27,42,.75); backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    .brand{display:flex; align-items:center; gap:.75rem}
+    .logo{width:40px; height:40px; display:grid; place-items:center; border-radius:.8rem; background:conic-gradient(from 45deg, var(--brand), var(--accent), var(--brand)); color:#111; font-weight:800}
+    nav ul{list-style:none; display:flex; gap:1.2rem; margin:0; padding:0}
+    nav a{opacity:.9; text-decoration:none}
+    nav a:hover, nav a:focus{opacity:1}
+
+    /* ===== HERO ===== */
+    .hero{position:relative; padding:clamp(3rem,5vw,6rem) 0}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:2rem; align-items:center}
+    .headline{font-size:clamp(2rem,4.6vw,4rem); line-height:1.1; margin:0 0 1rem}
+    .sub{font-size:clamp(1rem,1.4vw,1.15rem); color:rgba(255,255,255,.8)}
+    .hero-art{position:relative; aspect-ratio:1/1; border-radius:var(--radius); overflow:hidden; background:linear-gradient(135deg, rgba(250,249,246,.25), rgba(255,255,255,.06)); outline:1px solid rgba(255,255,255,.15)}
+    .floating{
+      position:absolute; inset:8%; border-radius:var(--radius);
+      background:radial-gradient(circle at 20% 20%, rgba(250,249,246,.6), transparent 35%),
+                 radial-gradient(circle at 80% 70%, rgba(200,173,127,.35), transparent 45%),
+                 linear-gradient(120deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      animation:float 10s ease-in-out infinite alternate;
+    }
+    @keyframes float{from{transform:translateY(-1%)} to{transform:translateY(2%)} }
+
+    /* ===== SECTIONS ===== */
+    section{padding:clamp(2.5rem,5vw,4.5rem) 0}
+    .section-head{display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1.5rem}
+    .section-head h2{margin:0; font-size:clamp(1.6rem,3.2vw,2.4rem)}
+    .kicker{letter-spacing:.12em; text-transform:uppercase; font-size:.8rem; color:rgba(250,249,246,.85)}
+
+    /* ===== SERVICES GRID ===== */
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1rem}
+    .card{grid-column:span 4; border-radius:var(--radius); padding:1.1rem; background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); outline:1px solid rgba(255,255,255,.12); box-shadow:var(--shadow)}
+    .card h3{margin:.2rem 0 .6rem}
+    .card p{color:rgba(255,255,255,.85)}
+    .icon{width:42px; height:42px; display:grid; place-items:center; border-radius:.8rem; background:rgba(250,249,246,.85); color:#111; font-weight:800}
+
+    /* ===== BEFORE/AFTER SLIDER ===== */
+    .ba-wrap{position:relative; border-radius:var(--radius); overflow:hidden; outline:1px solid rgba(255,255,255,.12)}
+    .ba{position:relative; aspect-ratio:16/9;}
+    .ba .after, .ba .before{position:absolute; inset:0; background-size:cover; background-position:center}
+    .ba .before{clip-path:inset(0 50% 0 0);}
+    .ba .handle{position:absolute; top:0; bottom:0; left:50%; width:3px; background:var(--accent); box-shadow:0 0 0 2px rgba(0,0,0,.25)}
+    .ba .knob{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:54px; height:54px; border-radius:50%; display:grid; place-items:center; background:var(--accent); color:#111; font-weight:800; box-shadow:var(--shadow)}
+
+    /* ===== PORTFOLIO ===== */
+    .filterbar{display:flex; flex-wrap:wrap; gap:.6rem}
+    .filterbar button{cursor:pointer}
+    .portfolio .card{grid-column:span 3; overflow:hidden; padding:0}
+    .portfolio .thumb{aspect-ratio:4/3; background:linear-gradient(135deg, rgba(250,249,246,.3), rgba(255,255,255,.05)); display:grid; place-items:center}
+    .portfolio .thumb span{background:rgba(0,0,0,.35); padding:.4rem .6rem; border-radius:.6rem}
+    .portfolio .meta{padding:1rem}
+
+    /* ===== QUOTE ESTIMATOR ===== */
+    .estimator{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
+    .control{background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); padding:1rem; border-radius:var(--radius); outline:1px solid rgba(255,255,255,.12)}
+    .control label{display:flex; justify-content:space-between; font-weight:600}
+    .result{display:grid; place-items:center; border-radius:var(--radius); background:linear-gradient(180deg, rgba(250,249,246,.85), rgba(250,249,246,.65)); color:#111; text-align:center;}
+    .price{font-size:clamp(2rem,4vw,3rem); margin:.4rem 0}
+
+    /* ===== TESTIMONIALS ===== */
+    .carousel{position:relative}
+    .slide{display:none}
+    .slide.active{display:block}
+    .quote{font-size:1.1rem}
+    .dots{display:flex; gap:.5rem; justify-content:center; margin-top:.8rem}
+    .dots button{width:10px; height:10px; border-radius:50%; border:0; background:rgba(255,255,255,.35)}
+    .dots button[aria-current="true"]{background:var(--accent)}
+
+    /* ===== FAQ ===== */
+    details{background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); padding:1rem; border-radius:var(--radius); outline:1px solid rgba(255,255,255,.12)}
+    details+details{margin-top:.6rem}
+    summary{cursor:pointer; font-weight:600}
+
+    /* ===== CONTACT ===== */
+    form{display:grid; gap:.8rem}
+    input, textarea, select{width:100%; padding:.9rem 1rem; border-radius:.8rem; border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.08); color:var(--text)}
+    input:focus, textarea:focus, select:focus{outline:2px solid var(--brand)}
+    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:.8rem}
+    .toast{position:fixed; right:1rem; bottom:1rem; padding:.8rem 1rem; background:rgba(250,249,246,.95); color:#111; border-radius:.8rem; box-shadow:var(--shadow); display:none}
+
+    /* ===== FOOTER ===== */
+    footer{margin-top:2rem; padding:2rem 0; border-top:1px solid rgba(255,255,255,.12); color:rgba(255,255,255,.8)}
+
+    /* ===== UTIL ===== */
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px){
+      .hero-grid{grid-template-columns:1fr}
+      .estimator{grid-template-columns:1fr}
+      .card, .portfolio .card{grid-column:span 6}
+    }
+    @media (max-width: 640px){
+      nav ul{display:none}
+      .card, .portfolio .card{grid-column:span 12}
+      .form-row{grid-template-columns:1fr}
+    }
+
+    /* Respect motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      *{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important}
+    }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">PK</div>
+        <div>
+          <strong>Python Kitchen Ltd</strong><br>
+          <span class="chip" title="UK company">UK · Interiors</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#estimate">Estimate</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <p class="kicker">Bespoke kitchens & wardrobes</p>
+        <h1 class="headline">Crafted interiors that work as beautifully as they look.</h1>
+        <p class="sub">We design, manufacture and install precision-built kitchen modules and fitted wardrobes across the UK. Seamless project management, premium materials, immaculate finishes.</p>
+        <div style="display:flex; gap:.8rem; margin-top:1rem">
+          <a class="btn primary" href="#estimate">Get instant estimate</a>
+          <a class="btn" href="#portfolio">See our work</a>
+        </div>
+        <div style="margin-top:1rem; display:flex; gap:.6rem; align-items:center">
+          <span class="chip">⏱️ Avg. install 10–15 days</span>
+          <span class="chip">🛡️ 5‑year workmanship warranty</span>
+          <span class="chip">🇬🇧 UK-wide service</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="floating"></div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="container">
+      <div class="section-head">
+        <h2>What we do</h2>
+        <span class="kicker">End‑to‑end expertise</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">🍳</div>
+          <h3>Kitchen Modules</h3>
+          <p>Modular, ergonomic kitchens tailored to your space: cabinetry, worktops, lighting, appliances integration and smart storage.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧥</div>
+          <h3>Fitted Wardrobes</h3>
+          <p>Floor‑to‑ceiling wardrobes with custom internals: rails, drawers, shoe towers, mirrors, soft‑close hardware.</p>
+        </article>
+        <article class="card">
+          <div class="icon">📐</div>
+          <h3>Design & Visualisation</h3>
+          <p>CAD layouts and realistic previews so you can see proportions, finishes and lighting before we build.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🛠️</div>
+          <h3>Manufacture & Install</h3>
+          <p>Precision CNC fabrication and clean on‑site installation with dust control, compliance and sign‑off.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🌿</div>
+          <h3>Materials & Finishes</h3>
+          <p>Durable laminates, solid woods and eco‑friendly paints. We advise on maintenance for long‑term beauty.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🤝</div>
+          <h3>Aftercare</h3>
+          <p>5‑year workmanship warranty and responsive support. Adjustments and upgrades when you need them.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== BEFORE/AFTER ===== -->
+    <section class="container">
+      <div class="section-head">
+        <h2>Before & After</h2>
+        <span class="kicker">Drag the handle</span>
+      </div>
+      <div class="ba-wrap">
+        <div class="ba" id="ba" aria-label="Before and after slider" role="region">
+          <div class="after" style="background-image:linear-gradient(135deg, rgba(200,173,127,.4), rgba(250,249,246,.25)), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 900%22><defs><linearGradient id=%22g%22 x1=%220%22 x2=%221%22 y1=%220%22 y2=%221%22><stop stop-color=%22%23c8ad7f%22/><stop offset=%221%22 stop-color=%22%23faf9f6%22/></linearGradient></defs><rect width=%221200%22 height=%22900%22 fill=%22url(%23g)%22/><g fill=%22%23111%22 opacity=%22.1%22><rect x=%22100%22 y=%22100%22 width=%22900%22 height=%22600%22 rx=%2250%22/></g></svg>')"></div>
+          <div class="before" id="before" style="background-image:linear-gradient(135deg, rgba(255,255,255,.1), rgba(0,0,0,.2)), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 900%22><rect width=%221200%22 height=%22900%22 fill=%22%231b263b%22/><g stroke=%22%23faf9f6%22 stroke-width=%224%22 opacity=%22.2%22><line x1=%220%22 y1=%22450%22 x2=%221200%22 y2=%22450%22/><line x1=%22600%22 y1=%220%22 x2=%22600%22 y2=%22900%22/></g></svg>')"></div>
+          <div class="handle" id="handle" aria-hidden="true"></div>
+          <div class="knob" id="knob" aria-label="Drag to compare" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⇆</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" class="container portfolio">
+      <div class="section-head">
+        <h2>Selected Projects</h2>
+        <div class="filterbar" role="tablist" aria-label="Filter portfolio">
+          <button class="btn" data-filter="all" aria-selected="true">All</button>
+          <button class="btn" data-filter="kitchen">Kitchens</button>
+          <button class="btn" data-filter="wardrobe">Wardrobes</button>
+          <button class="btn" data-filter="utility">Utility</button>
+        </div>
+      </div>
+      <div class="grid" id="portfolioGrid"></div>
+    </section>
+
+    <!-- ===== QUOTE ESTIMATOR ===== -->
+    <section id="estimate" class="container">
+      <div class="section-head">
+        <h2>Instant Estimate</h2>
+        <span class="kicker">Transparent, UK‑friendly pricing</span>
+      </div>
+      <div class="estimator">
+        <div class="control">
+          <label>Kitchen size (m²) <output id="sizeOut">12</output></label>
+          <input type="range" min="6" max="40" value="12" id="size" aria-label="Kitchen size">
+          <label>Cabinet finish
+            <select id="finish">
+              <option value="1">Matte laminate</option>
+              <option value="1.18">Premium matte</option>
+              <option value="1.35">High‑gloss</option>
+              <option value="1.5">Solid wood</option>
+            </select>
+          </label>
+          <label>Total wardrobe length (m) <output id="wardOut">3</output></label>
+          <input type="range" min="0" max="12" value="3" step="0.5" id="ward" aria-label="Wardrobe length">
+          <label>Appliance package
+            <select id="appliances">
+              <option value="0">None</option>
+              <option value="1200">Core (oven + hob + hood)</option>
+              <option value="2400">Premium (adds dishwasher & fridge)</option>
+            </select>
+          </label>
+          <p class="sub">This is a quick guide price. Book a survey for a fixed quote.</p>
+        </div>
+        <div class="result">
+          <div style="padding:2rem">
+            <p class="kicker" style="color:#111">Estimated project total</p>
+            <div class="price" id="price">£0</div>
+            <p style="margin:.2rem 0 1rem">incl. VAT • supply & install</p>
+            <a href="#contact" class="btn" style="background:#111; color:var(--accent); border-color:rgba(0,0,0,.4)">Book a free consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="container">
+      <div class="section-head">
+        <h2>Clients love the detail</h2>
+        <span class="kicker">Real home transformations</span>
+      </div>
+      <div class="carousel" aria-roledescription="carousel" aria-label="Testimonials">
+        <figure class="slide active">
+          <blockquote class="quote">“Flawless installation and brilliant storage ideas. Our tiny galley now feels spacious.”</blockquote>
+          <figcaption>— A. Patel, Manchester</figcaption>
+        </figure>
+        <figure class="slide">
+          <blockquote class="quote">“Transparent pricing and tidy work. The fitted wardrobes are solid and silent.”</blockquote>
+          <figcaption>— S. Williams, London</figcaption>
+        </figure>
+        <figure class="slide">
+          <blockquote class="quote">“Loved the 3D design preview — the final result matched perfectly.”</blockquote>
+          <figcaption>— R. McLeod, Glasgow</figcaption>
+        </figure>
+        <div class="dots" role="tablist" aria-label="Choose testimonial">
+          <button aria-label="Slide 1" aria-current="true"></button>
+          <button aria-label="Slide 2"></button>
+          <button aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="container">
+      <div class="section-head">
+        <h2>Questions, answered</h2>
+        <span class="kicker">Process & logistics</span>
+      </div>
+      <details>
+        <summary>Do you cover my area?</summary>
+        <p>We serve most of the UK. Send your postcode in the form below and we’ll confirm availability and lead times.</p>
+      </details>
+      <details>
+        <summary>How long does a typical install take?</summary>
+        <p>Most kitchens complete in 10–15 working days depending on scope. Wardrobes usually fit within 2–3 days.</p>
+      </details>
+      <details>
+        <summary>What warranties do you provide?</summary>
+        <p>5‑year workmanship warranty as standard. Manufacturer warranties apply to hardware and appliances.</p>
+      </details>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="container">
+      <div class="section-head">
+        <h2>Book a free consultation</h2>
+        <span class="kicker">Tell us about your space</span>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Jane Smith" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="07…" />
+          </div>
+          <div>
+            <label for="postcode">Postcode</label>
+            <input id="postcode" name="postcode" placeholder="E1 6AN" required />
+          </div>
+        </div>
+        <label for="service">I’m interested in</label>
+        <select id="service" name="service">
+          <option>Kitchen modules</option>
+          <option>Fitted wardrobes</option>
+          <option>Both</option>
+        </select>
+        <label for="message">Project notes</label>
+        <textarea id="message" name="message" rows="5" placeholder="Room sizes, style preferences, timelines…"></textarea>
+        <div style="display:flex; gap:.8rem; align-items:center; flex-wrap:wrap">
+          <button class="btn primary" type="submit">Send enquiry</button>
+          <button class="btn" type="button" id="copyEmail">Copy email</button>
+          <span class="kicker">or email <a href="mailto:hello@pythonkitchen.co.uk">hello@pythonkitchen.co.uk</a></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap">
+      <div>© <span id="year"></span> Python Kitchen Ltd · All rights reserved</div>
+      <div>Company based in the UK • Privacy • Terms</div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ===== INTERACTIVITY (JavaScript) ===== -->
+  <script>
+    // Smooth scroll for in‑page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Before/After slider
+    (function(){
+      const wrap = document.getElementById('ba');
+      const before = document.getElementById('before');
+      const handle = document.getElementById('handle');
+      const knob = document.getElementById('knob');
+      let dragging = false;
+
+      function setX(clientX){
+        const rect = wrap.getBoundingClientRect();
+        let x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+        const p = x / rect.width * 100;
+        before.style.clipPath = `inset(0 ${100-p}% 0 0)`;
+        handle.style.left = x + 'px';
+        knob.style.left = x + 'px';
+        knob.setAttribute('aria-valuenow', Math.round(p));
+      }
+
+      const onMove = e => setX((e.touches? e.touches[0].clientX : e.clientX));
+
+      ['mousedown','touchstart'].forEach(evt=> knob.addEventListener(evt, ()=> dragging=true));
+      ['mouseup','touchend','mouseleave'].forEach(evt=> wrap.addEventListener(evt, ()=> dragging=false));
+      wrap.addEventListener('mousemove', e=> dragging && onMove(e));
+      wrap.addEventListener('touchmove', onMove, {passive:true});
+      wrap.addEventListener('click', onMove);
+      // init
+      setX(wrap.getBoundingClientRect().width/2 + wrap.getBoundingClientRect().left);
+    })();
+
+    // Portfolio (demo data)
+    const projects = [
+      {t:'Matte graphite kitchen', c:'kitchen'},
+      {t:'Oak & ivory shaker', c:'kitchen'},
+      {t:'Handleless gloss island', c:'kitchen'},
+      {t:'Hallway sliding wardrobes', c:'wardrobe'},
+      {t:'Walk‑in wardrobe', c:'wardrobe'},
+      {t:'Utility room refresh', c:'utility'},
+      {t:'Pantry wall system', c:'kitchen'},
+      {t:'Compact studio wardrobe', c:'wardrobe'}
+    ];
+    const grid = document.getElementById('portfolioGrid');
+    function render(filter='all'){
+      grid.innerHTML = '';
+      projects.filter(p=> filter==='all' || p.c===filter).forEach((p,i)=>{
+        const card = document.createElement('article');
+        card.className = 'card';
+        const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop stop-color='%23faf9f6'/><stop offset='1' stop-color='%23c8ad7f'/></linearGradient></defs><rect width='400' height='300' fill='url(%23g)'/><g opacity='.18' fill='%230d1b2a'><rect x='30' y='40' width='340' height='200' rx='14'/><rect x='50' y='70' width='100' height='12' rx='6'/><rect x='50' y='100' width='140' height='12' rx='6'/></g></svg>`);
+        card.innerHTML = `
+          <div class='thumb' style="background-image:url(data:image/svg+xml,${svg})">
+            <span>${p.c}</span>
+          </div>
+          <div class='meta'>
+            <h3 style='margin:.2rem 0 .4rem'>${p.t}</h3>
+            <p class='sub'>Bespoke ${p.c}. Durable finishes. Precision fit.</p>
+          </div>`;
+        grid.appendChild(card);
+      });
+    }
+    render();
+    document.querySelectorAll('.filterbar .btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.filterbar .btn').forEach(b=> b.removeAttribute('aria-selected'));
+        btn.setAttribute('aria-selected','true');
+        render(btn.dataset.filter);
+      });
+    });
+
+    // Estimator logic (very simple demo model)
+    const gbp = new Intl.NumberFormat('en-GB', {style:'currency', currency:'GBP'});
+    const size = document.getElementById('size');
+    const finish = document.getElementById('finish');
+    const ward = document.getElementById('ward');
+    const appliances = document.getElementById('appliances');
+    const priceEl = document.getElementById('price');
+    const sizeOut = document.getElementById('sizeOut');
+    const wardOut = document.getElementById('wardOut');
+
+    function calc(){
+      const kSize = +size.value; // m²
+      const finishMult = +finish.value;
+      const wardrobeM = +ward.value;
+      const appliancePack = +appliances.value;
+      sizeOut.value = kSize;
+      wardOut.value = wardrobeM;
+      // Base: £650 per m² for cabinetry + worktops (demo), adjusted by finish
+      let kitchen = kSize * 650 * finishMult;
+      // Wardrobes: £450 per linear metre
+      let wardrobes = wardrobeM * 450;
+      // Fitting & sundries 12%
+      let fit = (kitchen + wardrobes) * 0.12;
+      // Appliances package
+      let total = kitchen + wardrobes + fit + appliancePack;
+      // VAT 20%
+      total *= 1.2;
+      priceEl.textContent = gbp.format(Math.round(total));
+    }
+    ['input','change'].forEach(ev=>{
+      size.addEventListener(ev, calc);
+      finish.addEventListener(ev, calc);
+      ward.addEventListener(ev, calc);
+      appliances.addEventListener(ev, calc);
+    });
+    calc();
+
+    // Testimonials carousel
+    (function(){
+      const slides = [...document.querySelectorAll('.slide')];
+      const dots = [...document.querySelectorAll('.dots button')];
+      let i = 0; let timer;
+      function show(n){
+        i = (n+slides.length)%slides.length;
+        slides.forEach((s,idx)=> s.classList.toggle('active', idx===i));
+        dots.forEach((d,idx)=> d.setAttribute('aria-current', idx===i ? 'true' : 'false'));
+      }
+      function auto(){ timer = setInterval(()=>{ show(i+1); }, 4500); }
+      dots.forEach((d,idx)=> d.addEventListener('click', ()=>{ clearInterval(timer); show(idx); auto(); }));
+      show(0); auto();
+    })();
+
+    // Contact form validation + mailto fallback + copy email
+    const form = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+    function notify(msg){
+      toast.textContent = msg; toast.style.display='block';
+      setTimeout(()=> toast.style.display='none', 2600);
+    }
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      if(!form.checkValidity()){
+        notify('Please complete required fields.');
+        return;
+      }
+      const data = Object.fromEntries(new FormData(form).entries());
+      const subject = encodeURIComponent('New enquiry — Python Kitchen Ltd');
+      const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone||''}\nPostcode: ${data.postcode}\nService: ${data.service}\n\nNotes:\n${data.message||''}`);
+      window.location.href = `mailto:hello@pythonkitchen.co.uk?subject=${subject}&body=${body}`;
+      notify('Thanks! Your email client should open now.');
+      form.reset();
+    });
+    document.getElementById('copyEmail').addEventListener('click', async ()=>{
+      try{ await navigator.clipboard.writeText('hello@pythonkitchen.co.uk'); notify('Email copied to clipboard'); }
+      catch{ notify('Copy failed — hello@pythonkitchen.co.uk'); }
+    });
+  </script>
+</body>
+</html>
