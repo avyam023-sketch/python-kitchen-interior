@@ -1007,6 +1007,11 @@
     // Smooth scroll for in‑page anchors
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
+        // Skip dropdown parent links on mobile - they should toggle dropdown instead
+        const isMobile = window.innerWidth <= 768;
+        if(isMobile && a.closest('.dropdown') && a.parentElement.classList.contains('dropdown')){
+          return; // Let the dropdown handler take over
+        }
         const id = a.getAttribute('href').slice(1);
         const el = document.getElementById(id);
         if(el){
@@ -2239,13 +2244,13 @@
     // Mobile/touch dropdown toggles for Services and nested submenus
     (function(){
       const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const mq = window.matchMedia('(max-width: 960px)');
+      const mq = window.matchMedia('(max-width: 768px)');
       const rootDropdown = document.querySelector('nav li.dropdown');
       if(!rootDropdown) return;
       const rootLink = rootDropdown.querySelector(':scope > a');
       const submenus = rootDropdown.querySelectorAll('.dropdown-submenu');
 
-      function isMobileLike(){ return isTouch || mq.matches; }
+      function isMobileLike(){ return window.innerWidth <= 768 || (isTouch && window.innerWidth <= 960); }
 
       function closeAll(){
         rootDropdown.classList.remove('open');
@@ -2261,6 +2266,7 @@
         rootLink.addEventListener('click', (e)=>{
           if(!isMobileLike()) return; // keep hover on desktop
           e.preventDefault();
+          e.stopPropagation();
           const nowOpen = !rootDropdown.classList.contains('open');
           if(!nowOpen) {
             closeAll();
@@ -2268,7 +2274,7 @@
           }
           rootDropdown.classList.add('open');
           rootLink.setAttribute('aria-expanded','true');
-        });
+        }, true); // Use capture phase to run before other handlers
       }
 
       submenus.forEach(sm=>{
@@ -2277,6 +2283,7 @@
         link.addEventListener('click', (e)=>{
           if(!isMobileLike()) return;
           e.preventDefault();
+          e.stopPropagation();
           const wasOpen = sm.classList.contains('open');
           submenus.forEach(s=> s.classList.remove('open'));
           submenus.forEach(s=>{
@@ -2290,7 +2297,7 @@
           // ensure parent is open too
           rootDropdown.classList.add('open');
           if(rootLink) rootLink.setAttribute('aria-expanded','true');
-        });
+        }, true); // Use capture phase
       });
 
       document.addEventListener('click', (e)=>{
