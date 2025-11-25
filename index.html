@@ -498,10 +498,12 @@
       nav ul{flex-direction:column; width:100%; gap:.4rem}
       nav li, nav a{width:100%}
       nav a{padding:.45rem 0}
-      .dropdown-menu{position:static; width:100%; min-width:0; max-width:100%; box-shadow:none; border-radius:.75rem; border:1px solid rgba(13,27,42,.1); margin:.35rem 0 0; padding:.35rem 0; overflow:hidden; max-height:0; transition:max-height .3s ease, opacity .3s ease; opacity:0}
-      .dropdown.open > .dropdown-menu{max-height:800px; opacity:1}
-      .dropdown-submenu .dropdown-menu{padding-left:1rem; margin:0; border-left:1px solid rgba(13,27,42,.08); max-height:0; opacity:0}
-      .dropdown-submenu.open > .dropdown-menu{max-height:600px; opacity:1}
+      .dropdown-menu{position:static !important; width:100% !important; min-width:0 !important; max-width:100% !important; box-shadow:none; border-radius:.75rem; border:1px solid rgba(13,27,42,.1); margin:.35rem 0 0; padding:.35rem 0; overflow:hidden; max-height:0; transition:max-height .4s ease, opacity .3s ease; opacity:0; display:block !important}
+      .dropdown.open > .dropdown-menu{max-height:1000px; opacity:1}
+      .dropdown-submenu .dropdown-menu{position:static !important; top:auto !important; left:auto !important; margin-left:0 !important; padding-left:1.25rem; margin-top:.25rem; border-left:2px solid rgba(13,27,42,.12); border-radius:.5rem; max-height:0; opacity:0; display:block !important; width:100% !important}
+      .dropdown-submenu.open > .dropdown-menu{max-height:800px; opacity:1}
+      .dropdown-menu a{display:block; padding:.6rem .8rem; border-radius:.4rem; color:var(--blue); opacity:1; font-size:.95rem}
+      .dropdown-submenu > a{font-weight:600; color:var(--muted)}
       .btn{white-space:normal; word-wrap:break-word; width:100%; justify-content:center}
       .chip{white-space:normal; display:inline-block}
     }
