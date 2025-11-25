@@ -375,7 +375,7 @@
     /* ===== STATS ===== */
     .stats-section{position:relative; background:linear-gradient(135deg, rgba(0,0,0,.7), rgba(13,27,42,.6)), url('carpanter.webp'), linear-gradient(135deg, #1a1a1a, #2d2d2d); background-size:cover; background-position:center; background-attachment:fixed; border-radius:var(--radius); overflow:hidden; margin:2rem 0}
     .stats-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1.5rem; padding:2.75rem clamp(1rem,4vw,2.5rem); position:relative; z-index:2}
-    .stat-card{text-align:center; padding:2rem 1rem; background:rgba(255,255,255,.1); border-radius:var(--radius); outline:1px solid rgba(255,255,255,.2); box-shadow:0 8px 32px rgba(0,0,0,.3); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:all 0.3s ease; border:1px solid rgba(255,255,255,.1); word-break:break-word}
+    .stat-card{text-align:center; padding:2rem 1rem; background:rgba(255,255,255,.1); border-radius:var(--radius); outline:1px solid rgba(255,255,255,.2); box-shadow:0 8px 32px rgba(0,0,0,.3); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:all 0.3s ease; border:1px solid rgba(255,255,255,.1); word-break:break-word; display:flex; flex-direction:column; justify-content:center; min-height:160px}
     .stat-card:hover{transform:translateY(-4px); background:rgba(255,255,255,.15); box-shadow:0 12px 40px rgba(0,0,0,.4)}
     .stat-number{font-size:clamp(2.5rem,4vw,3.5rem); font-weight:800; color:#ffffff; margin-bottom:.5rem; line-height:1; text-shadow:0 3px 6px rgba(0,0,0,.6), 0 1px 2px rgba(0,0,0,.8)}
     .stat-label{font-size:clamp(.9rem,1.2vw,1rem); color:rgba(255,255,255,.95); font-weight:500; line-height:1.3; text-shadow:0 2px 4px rgba(0,0,0,.6), 0 1px 2px rgba(0,0,0,.8)}
@@ -449,6 +449,9 @@
       footer .container{flex-direction:column; align-items:center; text-align:center}
       .social-links{justify-content:center; margin:1rem 0}
     }
+    @media (max-width: 520px){
+      .stats-grid{grid-template-columns:minmax(0,1fr); gap:1.25rem; padding:2rem 1rem}
+    }
     
     /* ===== MOBILE PORTRAIT OPTIMIZATIONS ===== */
     @media (max-width: 480px){
@@ -495,9 +498,10 @@
       nav ul{flex-direction:column; width:100%; gap:.4rem}
       nav li, nav a{width:100%}
       nav a{padding:.45rem 0}
-      .dropdown-menu{position:static; width:100%; min-width:0; max-width:100%; box-shadow:none; border-radius:.75rem; border:1px solid rgba(13,27,42,.1); margin:.35rem 0 0; padding:.35rem 0; overflow:hidden; max-height:0; transition:max-height .3s ease}
-      .dropdown.open > .dropdown-menu{max-height:800px}
-      .dropdown-submenu .dropdown-menu{padding-left:1rem; margin:0; border-left:1px solid rgba(13,27,42,.08)}
+      .dropdown-menu{position:static; width:100%; min-width:0; max-width:100%; box-shadow:none; border-radius:.75rem; border:1px solid rgba(13,27,42,.1); margin:.35rem 0 0; padding:.35rem 0; overflow:hidden; max-height:0; transition:max-height .3s ease, opacity .3s ease; opacity:0}
+      .dropdown.open > .dropdown-menu{max-height:800px; opacity:1}
+      .dropdown-submenu .dropdown-menu{padding-left:1rem; margin:0; border-left:1px solid rgba(13,27,42,.08); max-height:0; opacity:0}
+      .dropdown-submenu.open > .dropdown-menu{max-height:600px; opacity:1}
       .btn{white-space:normal; word-wrap:break-word; width:100%; justify-content:center}
       .chip{white-space:normal; display:inline-block}
     }
@@ -2145,50 +2149,63 @@
       // No autoplay — user controls only
     })();
 
-    // Stats counter animation
+    // Stats counter animation (IntersectionObserver with scroll fallback)
     (function(){
       const statNumbers = document.querySelectorAll('.stat-number');
-      const statsSection = document.querySelector('.stats-grid');
+      if(!statNumbers.length) return;
+      const statsSection = document.querySelector('.stats-section');
       let hasAnimated = false;
 
-      function animateCounter(element, target, duration = 2000) {
-        const start = 0;
-        const increment = target / (duration / 16); // 60fps
-        let current = start;
+      function animateCounter(element){
+        const target = Number(element.getAttribute('data-target')) || 0;
         const suffix = element.getAttribute('data-suffix') || '';
+        const duration = 2000;
+        const startTime = performance.now();
 
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
+        function update(now){
+          const progress = Math.min((now - startTime) / duration, 1);
+          const value = Math.floor(progress * target);
+          element.textContent = value + suffix;
+          if(progress < 1){
+            requestAnimationFrame(update);
           }
-          
-          // Display the number with suffix
-          element.textContent = Math.floor(current) + suffix;
-        }, 16);
-      }
-
-      function checkStatsInView() {
-        if (hasAnimated) return;
-        
-        const rect = statsSection.getBoundingClientRect();
-        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-        
-        if (isInView) {
-          hasAnimated = true;
-          
-          // Animate each counter using data attributes
-          statNumbers.forEach((element) => {
-            const target = parseInt(element.getAttribute('data-target'));
-            animateCounter(element, target, 2000);
-          });
         }
+
+        requestAnimationFrame(update);
       }
 
-      // Check on scroll and initial load
-      window.addEventListener('scroll', checkStatsInView);
-      window.addEventListener('load', checkStatsInView);
+      function startAnimation(){
+        if(hasAnimated) return;
+        hasAnimated = true;
+        statNumbers.forEach(animateCounter);
+      }
+
+      function fallbackCheck(){
+        if(hasAnimated) return;
+        if(!statsSection){
+          startAnimation();
+          return;
+        }
+        const rect = statsSection.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if(inView) startAnimation();
+      }
+
+      if('IntersectionObserver' in window && statsSection){
+        const observer = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              startAnimation();
+              observer.disconnect();
+            }
+          });
+        }, {threshold:0.35});
+        observer.observe(statsSection);
+      }else{
+        window.addEventListener('scroll', fallbackCheck);
+        window.addEventListener('load', fallbackCheck);
+        fallbackCheck();
+      }
     })();
 
     // Contact form validation + mailto fallback + copy email
